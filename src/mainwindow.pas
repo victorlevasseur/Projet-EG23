@@ -19,8 +19,9 @@ type
     MenuItem3: TMenuItem;
     PageControl1: TPageControl;
     StatusBar1: TStatusBar;
-    TabSheet1: TTabSheet;
-    ToolBar1: TToolBar;
+    PlanningSheet: TTabSheet;
+    RecettesSheet: TTabSheet;
+    IngredientsSheet: TTabSheet;
     procedure MenuItem1Click(Sender: TObject);
   private
     { private declarations }

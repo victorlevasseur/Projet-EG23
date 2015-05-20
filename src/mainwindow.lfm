@@ -10,24 +10,22 @@ object Form1: TForm1
   LCLVersion = '1.2.0.3'
   object PageControl1: TPageControl
     Left = 0
-    Height = 438
-    Top = 24
-    Width = 662
-    ActivePage = TabSheet1
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 0
-    TabOrder = 0
-    object TabSheet1: TTabSheet
-      Caption = 'TabSheet1'
-    end
-  end
-  object ToolBar1: TToolBar
-    Left = 0
-    Height = 26
+    Height = 462
     Top = 0
     Width = 662
-    Caption = 'ToolBar1'
-    TabOrder = 1
+    ActivePage = IngredientsSheet
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 2
+    TabOrder = 0
+    object PlanningSheet: TTabSheet
+      Caption = 'Planning'
+    end
+    object RecettesSheet: TTabSheet
+      Caption = 'Editer les recettes'
+    end
+    object IngredientsSheet: TTabSheet
+      Caption = 'Editer les ingrédients'
+    end
   end
   object StatusBar1: TStatusBar
     Left = 0
