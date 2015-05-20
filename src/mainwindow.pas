@@ -6,13 +6,13 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ActnList, ExtCtrls, Menus;
+  ActnList, ExtCtrls, Menus, ongletPlanning;
 
 type
 
-  { TForm1 }
+  { TMainWindowForm }
 
-  TForm1 = class(TForm)
+  TMainWindowForm = class(TForm)
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
@@ -22,25 +22,33 @@ type
     PlanningSheet: TTabSheet;
     RecettesSheet: TTabSheet;
     IngredientsSheet: TTabSheet;
+    procedure FormCreate(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
   private
     { private declarations }
+    planningPanel: TForm2;
   public
     { public declarations }
   end;
 
 var
-  Form1: TForm1;
+  MainWindowForm: TMainWindowForm;
 
 implementation
 
 {$R *.lfm}
 
-{ TForm1 }
+{ TMainWindowForm }
 
-procedure TForm1.MenuItem1Click(Sender: TObject);
+procedure TMainWindowForm.MenuItem1Click(Sender: TObject);
 begin
 
+end;
+
+procedure TMainWindowForm.FormCreate(Sender: TObject);
+begin
+     planningPanel := TForm2.Create(Self);
+     PlanningSheet.InsertControl(planningPanel);
 end;
 
 end.
