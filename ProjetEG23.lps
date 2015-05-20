@@ -3,12 +3,11 @@
   <ProjectSession>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="ProjetEG23.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="ProjetEG23"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="20"/>
       </Unit0>
       <Unit1>
         <Filename Value="src/mainwindow.pas"/>
@@ -17,14 +16,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="mainWindow"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="0"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="6"/>
-        <CursorPos X="54" Y="36"/>
-        <UsageCount Value="22"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="20"/>
       </Unit1>
       <Unit2>
         <Filename Value="src/ongletplanning.pas"/>
@@ -33,95 +25,24 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ongletPlanning"/>
-        <EditorIndex Value="1"/>
+        <UsageCount Value="20"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="src/mainwindow.lfm"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="23" Y="14"/>
-        <UsageCount Value="22"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
         <Loaded Value="True"/>
-      </Unit2>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit3>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="19" HistoryIndex="18">
-      <Position1>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="1" Column="1" TopLine="1"/>
-      </Position1>
-      <Position2>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="40" Column="3" TopLine="1"/>
-      </Position2>
-      <Position3>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="41" Column="3" TopLine="1"/>
-      </Position3>
-      <Position4>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="8" Column="10" TopLine="1"/>
-      </Position4>
-      <Position5>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="31" Column="41" TopLine="1"/>
-      </Position5>
-      <Position6>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="32" Column="41" TopLine="1"/>
-      </Position6>
-      <Position7>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="31" Column="41" TopLine="1"/>
-      </Position7>
-      <Position8>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="22" Column="23" TopLine="1"/>
-      </Position8>
-      <Position9>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="29" Column="25" TopLine="4"/>
-      </Position9>
-      <Position10>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="37" Column="1" TopLine="5"/>
-      </Position10>
-      <Position11>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="50" Column="39" TopLine="5"/>
-      </Position11>
-      <Position12>
-        <Filename Value="src/ongletplanning.pas"/>
-        <Caret Line="14" Column="26" TopLine="1"/>
-      </Position12>
-      <Position13>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="31" Column="40" TopLine="7"/>
-      </Position13>
-      <Position14>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="51" Column="45" TopLine="6"/>
-      </Position14>
-      <Position15>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="28" Column="52" TopLine="6"/>
-      </Position15>
-      <Position16>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="27" Column="52" TopLine="5"/>
-      </Position16>
-      <Position17>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="36" Column="54" TopLine="6"/>
-      </Position17>
-      <Position18>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="37" Column="54" TopLine="6"/>
-      </Position18>
-      <Position19>
-        <Filename Value="src/mainwindow.pas"/>
-        <Caret Line="36" Column="54" TopLine="6"/>
-      </Position19>
-    </JumpHistory>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
   </ProjectSession>
   <EditorMacros Count="0"/>
 </CONFIG>
