@@ -1,29 +1,29 @@
 object Form1: TForm1
-  Left = 526
+  Left = 405
   Height = 591
-  Top = 255
+  Top = 230
   Width = 1064
   Caption = 'Form1'
-  ClientHeight = 591
+  ClientHeight = 572
   ClientWidth = 1064
   Menu = MainMenu1
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '1.2.0.3'
   object PageControl1: TPageControl
     Left = 0
-    Height = 570
+    Height = 551
     Top = 0
     Width = 1064
     ActivePage = IngredientsSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     object PlanningSheet: TTabSheet
       Caption = 'Planning'
     end
     object RecettesSheet: TTabSheet
       Caption = 'Editer les recettes'
-      ClientHeight = 531
-      ClientWidth = 1058
+      ClientHeight = 514
+      ClientWidth = 1056
       object Panel3: TPanel
         AnchorSideLeft.Control = RecettesSheet
         AnchorSideLeft.Side = asrCenter
@@ -237,19 +237,19 @@ object Form1: TForm1
     end
     object IngredientsSheet: TTabSheet
       Caption = 'Editer les ingrédients'
-      ClientHeight = 531
-      ClientWidth = 1058
+      ClientHeight = 514
+      ClientWidth = 1056
       object Panel1: TPanel
         AnchorSideLeft.Control = IngredientsSheet
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = IngredientsSheet
-        Left = 129
+        Left = 128
         Height = 504
         Top = 0
         Width = 800
         BorderStyle = bsSingle
-        ClientHeight = 504
-        ClientWidth = 800
+        ClientHeight = 502
+        ClientWidth = 798
         Color = clWhite
         ParentColor = False
         TabOrder = 0
@@ -266,7 +266,7 @@ object Form1: TForm1
           TabOrder = 0
           object Label1: TLabel
             Left = 32
-            Height = 16
+            Height = 15
             Top = 8
             Width = 105
             Caption = 'Liste ingrédients'
@@ -276,9 +276,9 @@ object Form1: TForm1
           end
           object Label2: TLabel
             Left = 424
-            Height = 16
+            Height = 15
             Top = 8
-            Width = 65
+            Width = 64
             Caption = 'Ingrédient'
             Font.Color = clWhite
             ParentColor = False
@@ -287,7 +287,7 @@ object Form1: TForm1
         end
         object DBEdit1: TDBEdit
           Left = 392
-          Height = 22
+          Height = 21
           Top = 147
           Width = 152
           CharCase = ecNormal
@@ -297,9 +297,9 @@ object Form1: TForm1
         end
         object Label3: TLabel
           Left = 312
-          Height = 17
+          Height = 16
           Top = 152
-          Width = 52
+          Width = 51
           Caption = 'Intitulé:'
           Font.Height = -14
           ParentColor = False
@@ -308,9 +308,9 @@ object Form1: TForm1
         end
         object Label4: TLabel
           Left = 312
-          Height = 17
+          Height = 16
           Top = 192
-          Width = 42
+          Width = 41
           Caption = 'Type: '
           Font.Height = -14
           ParentColor = False
@@ -318,9 +318,9 @@ object Form1: TForm1
         end
         object Label5: TLabel
           Left = 312
-          Height = 17
+          Height = 16
           Top = 232
-          Width = 70
+          Width = 72
           Caption = 'Précision: '
           Font.Height = -14
           ParentColor = False
@@ -328,9 +328,9 @@ object Form1: TForm1
         end
         object Label6: TLabel
           Left = 312
-          Height = 17
+          Height = 16
           Top = 264
-          Width = 122
+          Width = 125
           Caption = 'Conditionnement:'
           Font.Height = -14
           ParentColor = False
@@ -338,9 +338,9 @@ object Form1: TForm1
         end
         object Label7: TLabel
           Left = 312
-          Height = 17
+          Height = 16
           Top = 304
-          Width = 44
+          Width = 45
           Caption = 'Unité: '
           Font.Height = -14
           ParentColor = False
@@ -406,8 +406,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 15
-    Top = 576
+    Height = 19
+    Top = 553
     Width = 1064
     Panels = <>
   end
@@ -441,12 +441,11 @@ object Form1: TForm1
     OpenMode = omAutoCreate
     TableName = 'INGREDIE.DBF'
     TableLevel = 3
-    Active = True
     FilterOptions = []
     left = 984
     top = 144
   end
-  object DataSource1: TDataSource
+  object DataSource1: TDatasource
     DataSet = Dbf1
     left = 998
     top = 265
@@ -462,12 +461,11 @@ object Form1: TForm1
     OpenMode = omAutoCreate
     TableName = 'RECETTES.DBF'
     TableLevel = 3
-    Active = True
     FilterOptions = []
     left = 976
     top = 200
   end
-  object DataSource2: TDataSource
+  object DataSource2: TDatasource
     DataSet = Dbf2
     left = 976
     top = 336

@@ -74,13 +74,12 @@ type
     procedure Panel1Click(Sender: TObject);
   private
     { private declarations }
-    planningPanel: TForm2;
   public
     { public declarations }
   end;
 
 var
-  MainWindowForm: TMainWindowForm;
+  Form1: TForm1;
 
 implementation
 
@@ -88,7 +87,7 @@ implementation
 
 { TMainWindowForm }
 
-procedure TMainWindowForm.MenuItem1Click(Sender: TObject);
+procedure TForm1.MenuItem1Click(Sender: TObject);
 begin
 
 end;
