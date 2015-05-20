@@ -55,3 +55,9 @@ __history/
 
 # Castalia statistics file
 *.stat
+
+# Quelques autres fichiers
+src/backup/*
+backup/*
+ProjetEG23
+lib/*
