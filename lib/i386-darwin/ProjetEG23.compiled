@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/local/bin/ppc386" Date="1393445779"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl  -k-framework -kCarbon -k-framework -kOpenGL -k-dylib_file -k/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib -l -vewnhibq &quot;-Fi/Users/Charlelieb/UTT/Semestre 2/EG23/Projet/Projet-EG23/lib/i386-darwin&quot; &quot;-Fu/Users/Charlelieb/UTT/Semestre 2/EG23/Projet/Projet-EG23/src&quot; -Fu/Developer/lazarus/components/tdbf/lib/i386-darwin/carbon -Fu/Developer/lazarus/components/ideintf/units/i386-darwin/carbon -Fu/Developer/lazarus/components/lazcontrols/lib/i386-darwin/carbon -Fu/Developer/lazarus/lcl/units/i386-darwin/carbon -Fu/Developer/lazarus/lcl/units/i386-darwin -Fu/Developer/lazarus/components/lazutils/lib/i386-darwin -Fu/Developer/lazarus/packager/units/i386-darwin &quot;-Fu/Users/Charlelieb/UTT/Semestre 2/EG23/Projet/Projet-EG23/&quot; &quot;-FU/Users/Charlelieb/UTT/Semestre 2/EG23/Projet/Projet-EG23/lib/i386-darwin/&quot; -dLCL -dLCLcarbon ProjetEG23.lpr"/>
+</CONFIG>
