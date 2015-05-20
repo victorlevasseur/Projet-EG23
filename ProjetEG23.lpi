@@ -38,7 +38,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="2">
       <Unit0>
         <Filename Value="ProjetEG23.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -46,19 +46,11 @@
       <Unit1>
         <Filename Value="src/mainwindow.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="MainWindowForm"/>
+        <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="mainWindow"/>
       </Unit1>
-      <Unit2>
-        <Filename Value="src/ongletplanning.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form2"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="ongletPlanning"/>
-      </Unit2>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -78,6 +70,9 @@
         </Win32>
       </Options>
     </Linking>
+    <Other>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">

@@ -6,11 +6,14 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ActnList, ExtCtrls, Menus, ValEdit, DbCtrls, StdCtrls, DBGrids, dbf, db;
+  ActnList, ExtCtrls, Menus, ValEdit, DbCtrls, StdCtrls, DBGrids, PairSplitter,
+  Buttons, dbf, db;
 
 type
 
   { TMainWindowForm }
+
+  { TForm1 }
 
   TForm1 = class(TForm)
     Button1: TButton;
@@ -31,6 +34,7 @@ type
     DBGrid1: TDBGrid;
     DBGrid2: TDBGrid;
     DBGrid3: TDBGrid;
+    GroupBox1: TGroupBox;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -53,14 +57,18 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     PageControl1: TPageControl;
+    PlanningSidePanel: TPageControl;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
+    ScrollBox1: TScrollBox;
     StatusBar1: TStatusBar;
     PlanningSheet: TTabSheet;
     RecettesSheet: TTabSheet;
     IngredientsSheet: TTabSheet;
+    DescriptionPanelSheet: TTabSheet;
+    ChangePanelSheet: TTabSheet;
     ToggleBox1: TToggleBox;
     procedure Button8Click(Sender: TObject);
     procedure ComboBox1Change(Sender: TObject);

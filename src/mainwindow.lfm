@@ -13,12 +13,52 @@ object Form1: TForm1
     Height = 551
     Top = 0
     Width = 1064
-    ActivePage = IngredientsSheet
+    ActivePage = PlanningSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 2
+    TabIndex = 0
     TabOrder = 0
     object PlanningSheet: TTabSheet
       Caption = 'Planning'
+      ClientHeight = 514
+      ClientWidth = 1056
+      object GroupBox1: TGroupBox
+        Left = 780
+        Height = 513
+        Top = -1
+        Width = 273
+        Anchors = [akTop, akRight, akBottom]
+        Caption = 'Description'
+        ClientHeight = 482
+        ClientWidth = 269
+        TabOrder = 0
+        object PlanningSidePanel: TPageControl
+          Left = 6
+          Height = 480
+          Top = 3
+          Width = 256
+          ActivePage = DescriptionPanelSheet
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          ShowTabs = False
+          TabIndex = 0
+          TabOrder = 0
+          object DescriptionPanelSheet: TTabSheet
+            Caption = 'DescriptionPanelSheet'
+          end
+          object ChangePanelSheet: TTabSheet
+            Caption = 'ChangePanelSheet'
+          end
+        end
+      end
+      object ScrollBox1: TScrollBox
+        Left = 4
+        Height = 479
+        Top = 31
+        Width = 776
+        HorzScrollBar.Page = 772
+        VertScrollBar.Page = 475
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        TabOrder = 1
+      end
     end
     object RecettesSheet: TTabSheet
       Caption = 'Editer les recettes'
@@ -28,7 +68,7 @@ object Form1: TForm1
         AnchorSideLeft.Control = RecettesSheet
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = RecettesSheet
-        Left = 129
+        Left = 128
         Height = 504
         Top = 0
         Width = 800
@@ -49,9 +89,9 @@ object Form1: TForm1
           TabOrder = 0
           object Label8: TLabel
             Left = 48
-            Height = 16
+            Height = 15
             Top = 8
-            Width = 111
+            Width = 112
             Caption = 'Listes ingrédients'
             Font.Color = clWhite
             ParentColor = False
@@ -59,9 +99,9 @@ object Form1: TForm1
           end
           object Label9: TLabel
             Left = 360
-            Height = 16
+            Height = 15
             Top = 8
-            Width = 53
+            Width = 55
             Caption = 'Recettes'
             Font.Color = clWhite
             ParentColor = False
@@ -69,9 +109,9 @@ object Form1: TForm1
           end
           object Label10: TLabel
             Left = 648
-            Height = 16
+            Height = 15
             Top = 8
-            Width = 84
+            Width = 87
             Caption = 'Liste recettes'
             Font.Color = clWhite
             ParentColor = False
@@ -80,9 +120,9 @@ object Form1: TForm1
         end
         object Label11: TLabel
           Left = 216
-          Height = 18
+          Height = 19
           Top = 48
-          Width = 60
+          Width = 57
           Caption = 'Intitulé:'
           Font.Height = 16
           ParentColor = False
@@ -90,15 +130,15 @@ object Form1: TForm1
         end
         object Label12: TLabel
           Left = 216
-          Height = 17
+          Height = 16
           Top = 88
-          Width = 114
+          Width = 117
           Caption = 'Type de recette: '
           ParentColor = False
         end
         object Label13: TLabel
           Left = 216
-          Height = 17
+          Height = 16
           Top = 128
           Width = 71
           Caption = 'Difficulté: '
@@ -106,33 +146,33 @@ object Form1: TForm1
         end
         object Label14: TLabel
           Left = 216
-          Height = 17
+          Height = 16
           Top = 168
-          Width = 159
+          Width = 160
           Caption = 'Temps de préparation: '
           ParentColor = False
         end
         object Label15: TLabel
           Left = 216
-          Height = 17
+          Height = 16
           Top = 208
-          Width = 133
+          Width = 129
           Caption = 'Coût approximatif: '
           ParentColor = False
         end
         object Label16: TLabel
           Left = 216
-          Height = 17
+          Height = 16
           Top = 248
-          Width = 134
+          Width = 135
           Caption = 'Nombre de calorie: '
           ParentColor = False
         end
         object Label17: TLabel
           Left = 216
-          Height = 17
+          Height = 16
           Top = 288
-          Width = 163
+          Width = 165
           Caption = 'Descriptif de la recette: '
           ParentColor = False
         end
@@ -154,7 +194,7 @@ object Form1: TForm1
         end
         object ComboBox1: TComboBox
           Left = 296
-          Height = 21
+          Height = 22
           Top = 128
           Width = 104
           ItemHeight = 0
@@ -412,8 +452,7 @@ object Form1: TForm1
     Panels = <>
   end
   object MainMenu1: TMainMenu
-    left = 1000
-    top = 40
+    left = 520
     object MenuItem1: TMenuItem
       Caption = 'New Item1'
       OnClick = MenuItem1Click
@@ -442,13 +481,11 @@ object Form1: TForm1
     TableName = 'INGREDIE.DBF'
     TableLevel = 3
     FilterOptions = []
-    left = 984
-    top = 144
+    left = 608
   end
   object DataSource1: TDatasource
     DataSet = Dbf1
-    left = 998
-    top = 265
+    left = 808
   end
   object Dbf2: TDbf
     FilePath = '/Users/Charlelieb/UTT/Semestre 2/EG23/Projet/Projet-EG23/'
@@ -462,12 +499,10 @@ object Form1: TForm1
     TableName = 'RECETTES.DBF'
     TableLevel = 3
     FilterOptions = []
-    left = 976
-    top = 200
+    left = 704
   end
   object DataSource2: TDatasource
     DataSet = Dbf2
-    left = 976
-    top = 336
+    left = 904
   end
 end
