@@ -38,13 +38,21 @@ object PlanningDayControl: TPlanningDayControl
     TabOrder = 0
     ViewStyle = vsReport
   end
-  object InformationLabel: TLabel
+  object CaloriesLabel: TLabel
     Left = 8
     Height = 15
     Top = 152
-    Width = 107
+    Width = 85
     Anchors = [akLeft, akBottom]
-    Caption = 'InformationLabel'
+    Caption = 'CaloriesLabel'
+    ParentColor = False
+  end
+  object DurationLabel: TLabel
+    Left = 8
+    Height = 15
+    Top = 168
+    Width = 89
+    Caption = 'DurationLabel'
     ParentColor = False
   end
   object RecipeDbf: TDbf
