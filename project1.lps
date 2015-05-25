@@ -3,7 +3,7 @@
   <ProjectSession>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -44,8 +44,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="63"/>
-        <CursorPos X="107" Y="110"/>
+        <TopLine Value="82"/>
+        <CursorPos X="74" Y="121"/>
         <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -58,11 +58,19 @@
         <CursorPos X="8" Y="28"/>
         <UsageCount Value="10"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="/usr/share/fpcsrc/packages/fcl-db/src/base/db.pas"/>
+        <UnitName Value="db"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="368"/>
+        <CursorPos X="14" Y="392"/>
+        <UsageCount Value="10"/>
+      </Unit5>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="src/planningday.pas"/>
         <Caret Line="28" Column="14" TopLine="1"/>
@@ -175,6 +183,14 @@
         <Filename Value="src/planningday.pas"/>
         <Caret Line="100" Column="81" TopLine="75"/>
       </Position28>
+      <Position29>
+        <Filename Value="src/planningday.pas"/>
+        <Caret Line="110" Column="108" TopLine="63"/>
+      </Position29>
+      <Position30>
+        <Filename Value="src/planningday.pas"/>
+        <Caret Line="114" Column="78" TopLine="82"/>
+      </Position30>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>

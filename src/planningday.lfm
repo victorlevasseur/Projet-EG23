@@ -55,6 +55,14 @@ object PlanningDayControl: TPlanningDayControl
     Caption = 'DurationLabel'
     ParentColor = False
   end
+  object CostLabel: TLabel
+    Left = 8
+    Height = 15
+    Top = 184
+    Width = 63
+    Caption = 'CostLabel'
+    ParentColor = False
+  end
   object RecipeDbf: TDbf
     IndexDefs = <>
     TableLevel = 3

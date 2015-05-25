@@ -17,6 +17,7 @@ type
   TPlanningDayControl = class(TFrame)
     Datasource1: TDatasource;
     DurationLabel: TLabel;
+    CostLabel: TLabel;
     RecipeDbf: TDbf;
     CaloriesLabel: TLabel;
     ListView1: TListView;
@@ -84,6 +85,7 @@ procedure TPlanningDayControl.UpdateListView;
 var
   totalCalories: Integer;
   totalDuration: Integer;
+  totalCost: Double;
 begin
      ListView1.Items.Item[0].Caption := GetRecipeName(StarterId);
      ListView1.Items.Item[1].Caption := GetRecipeName(MealId);
@@ -105,9 +107,18 @@ begin
      RecipeDbf.Locate('CODE', DessertId, [loCaseInsensitive]);
      totalDuration := totalDuration + RecipeDbf.FieldByName('PREPARATIO').AsInteger + RecipeDbf.FieldByName('TPS_CUISSO').AsInteger;
 
+     //Calcul du prix total
+     RecipeDbf.Locate('CODE', StarterId, [loCaseInsensitive]);
+     totalCost := RecipeDbf.FieldByName('COUT').AsFloat;
+     RecipeDbf.Locate('CODE', MealId, [loCaseInsensitive]);
+     totalCost := totalCost + RecipeDbf.FieldByName('COUT').AsFloat;
+     RecipeDbf.Locate('CODE', DessertId, [loCaseInsensitive]);
+     totalCost := totalCost + RecipeDbf.FieldByName('COUT').AsFloat;
+
      //Ajout du texte dans la zone d'information
      CaloriesLabel.Caption := 'Calories : ' + IntToStr(totalCalories) + ' kCal';
      DurationLabel.Caption := 'Temps total (prép. + cuisson) : ' + IntToStr(totalDuration) + ' min';
+     CostLabel.Caption := 'Prix total : ' + FloatToStr(totalCost) + ' €';
 end;
 
 constructor TPlanningDayControl.Create(AOwner: TComponent);
