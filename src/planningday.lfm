@@ -21,7 +21,7 @@ object PlanningDayControl: TPlanningDayControl
     Columns = <    
       item
         Caption = 'Nom'
-        Width = 150
+        Width = 170
       end    
       item
         Caption = 'Type'
@@ -37,6 +37,7 @@ object PlanningDayControl: TPlanningDayControl
     RowSelect = True
     TabOrder = 0
     ViewStyle = vsReport
+    OnSelectItem = ListView1SelectItem
   end
   object CaloriesLabel: TLabel
     Left = 8

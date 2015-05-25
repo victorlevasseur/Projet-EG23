@@ -10,6 +10,9 @@ uses
 
 type
 
+  TPlanningDayClickEvent = procedure (Day: string; MomentOfDay: string;
+    TypeOfRecipe: string) of object;
+
   { TPlanningDayControl }
   //Cette classe est un contrôle permettant d'afficher le contenu d'un repas
   //sur le planning (entrée, plat et dessert) ainsi que quelques informations
@@ -21,7 +24,11 @@ type
     RecipeDbf: TDbf;
     CaloriesLabel: TLabel;
     ListView1: TListView;
+
+    procedure ListView1SelectItem(Sender: TObject; Item: TListItem;
+      Selected: Boolean);
     procedure RecipeDbfAfterOpen(DataSet: TDataSet);
+
   private
     { private declarations }
 
@@ -31,35 +38,40 @@ type
     //Met à jour l'affichage de la liste des recettes du repas ainsi que
     //le informations sur le temps de préparation / calories
     procedure UpdateListView();
+
   private
     //Stockage des IDs correspondant aux plats
     StarterId: Integer;
     MealId: Integer;
     DessertId: Integer;
+
   public
     { public declarations }
+
+    //Un pointeur sur procédure permettant à l'application de donner une
+    //procédure à exécuter quand l'utilisateur clique sur un élément de menu
+    OnDishSelected: TPlanningDayClickEvent;
 
     //Surcharge du constructeur permettant d'initialiser la connexion à la base
     //de données.
     constructor Create(AOwner: TComponent) ; override;
 
-    //Permet de récupérer l'ID de l'entrée
+    //Entrée
     function GetStarter : Integer;
-
-    //Permet de définir l'entrée du repas (son ID)
     procedure SetStarter(Id: Integer);
 
-    //Permet de récupérer l'ID du repas
+    //Plat principal
     function GetMeal : Integer;
-
-    //Permet de définir le plat du repas (son ID)
     procedure SetMeal(Id: Integer);
 
-    //Permet de récupérer l'ID du dessert
+    //Dessert
     function GetDessert : Integer;
-
-    //Permet de définir le dessert du repas (son ID)
     procedure SetDessert(Id: Integer);
+
+  public
+    //Info à propos du jour et du repas auquel ce contrôle correspond
+    Day: string;
+    MomentOfDay: string;
   end;
 
 implementation
@@ -71,6 +83,26 @@ begin
      SetStarter(1);
      SetMeal(2);
      SetDessert(3);
+end;
+
+procedure TPlanningDayControl.ListView1SelectItem(Sender: TObject;
+  Item: TListItem; Selected: Boolean);
+var
+   DishType: string;
+begin
+     //Prendre en compte uniquement les événements de sélection (et pas de
+     //déselection) et juste si l'event handler OnDishSelected est "lié"
+     if Selected and Assigned(OnDishSelected) then
+     begin
+          if Item.Index = 0 then
+              DishType := 'Entrée'
+          else if Item.Index = 1 then
+              DishType := 'Plat'
+          else
+              DishType := 'Dessert';
+
+          OnDishSelected(Day, MomentOfDay, DishType);
+     end;
 end;
 
 function TPlanningDayControl.GetRecipeName(Id: Integer) : string;
@@ -128,6 +160,9 @@ begin
      StarterId := -1;
      MealId := -1;
      DessertId := -1;
+
+     Day := '';
+     MomentOfDay := '';
 
      RecipeDbf.FilePathFull := GetCurrentDir();
      RecipeDbf.TableLevel := 4;
