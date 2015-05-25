@@ -1,0 +1,58 @@
+object PlanningDayControl: TPlanningDayControl
+  Left = 0
+  Height = 204
+  Top = 0
+  Width = 272
+  HorzScrollBar.Page = 272
+  VertScrollBar.Page = 204
+  AutoScroll = True
+  ClientHeight = 204
+  ClientWidth = 272
+  TabOrder = 0
+  DesignLeft = 396
+  DesignTop = 222
+  object ListView1: TListView
+    Left = 0
+    Height = 152
+    Top = 0
+    Width = 274
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoSort = False
+    Columns = <    
+      item
+        Caption = 'Nom'
+        Width = 150
+      end    
+      item
+        Caption = 'Type'
+        Width = 103
+      end>
+    Items.LazData = {
+      9400000003000000FFFFFFFFFFFFFFFFFFFFFFFF010000000D00000049636920
+      6C27656E7472C3A96507000000456E7472C3A965FFFFFFFFFFFFFFFFFFFFFFFF
+      010000000B000000496369206C6520706C617404000000506C6174FFFFFFFFFF
+      FFFFFFFFFFFFFF010000000E000000496369206C652064657373657274070000
+      0044657373657274FFFFFFFFFFFFFFFFFFFFFFFF
+    }
+    RowSelect = True
+    TabOrder = 0
+    ViewStyle = vsReport
+  end
+  object InformationLabel: TLabel
+    Left = 8
+    Height = 15
+    Top = 152
+    Width = 107
+    Anchors = [akLeft, akBottom]
+    Caption = 'InformationLabel'
+    ParentColor = False
+  end
+  object RecipeDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 3
+    FilterOptions = []
+    AfterOpen = RecipeDbfAfterOpen
+    left = 208
+    top = 152
+  end
+end

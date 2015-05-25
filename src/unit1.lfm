@@ -1,0 +1,64 @@
+object Form1: TForm1
+  Left = 662
+  Height = 673
+  Top = 178
+  Width = 1004
+  Caption = 'Logiciel de gestion de repas'
+  ClientHeight = 654
+  ClientWidth = 1004
+  Menu = MainMenu
+  LCLVersion = '1.2.0.3'
+  object MainPageControl: TPageControl
+    Left = 0
+    Height = 654
+    Top = 0
+    Width = 1004
+    ActivePage = PlanningTabSheet
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 0
+    TabOrder = 0
+    object PlanningTabSheet: TTabSheet
+      Caption = 'Planning des repas de la semaine'
+      ClientHeight = 617
+      ClientWidth = 996
+      inline PlanningFrame1: TPlanningFrame
+        Left = 5
+        Top = 11
+        inherited ScrollBox1: TScrollBox
+          ClientHeight = 555
+          ClientWidth = 591
+          inherited PlanningDayControl1: TPlanningDayControl
+            Left = 45
+            Top = 45
+          end
+        end
+        inherited InformationGroupBox: TGroupBox
+          ClientHeight = 528
+        end
+      end
+    end
+    object RecipesTabSheet: TTabSheet
+      Caption = 'Editer les recettes'
+    end
+    object IngredientsTabSheet: TTabSheet
+      Caption = 'Editer les ingrédients'
+    end
+  end
+  object MainMenu: TMainMenu
+    left = 968
+    top = 8
+    object MenuItem1: TMenuItem
+      Caption = 'Fichier'
+      object MenuItem2: TMenuItem
+        Caption = 'Quitter'
+        OnClick = OnQuitMenuItemClicked
+      end
+    end
+    object MenuItem3: TMenuItem
+      Caption = '?'
+      object MenuItem4: TMenuItem
+        Caption = 'A propos de...'
+      end
+    end
+  end
+end
