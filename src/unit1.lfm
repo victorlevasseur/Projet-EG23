@@ -24,17 +24,6 @@ object Form1: TForm1
       inline PlanningFrame1: TPlanningFrame
         Left = 5
         Top = 11
-        inherited ScrollBox1: TScrollBox
-          ClientHeight = 555
-          ClientWidth = 591
-          inherited PlanningDayControl1: TPlanningDayControl
-            Left = 45
-            Top = 45
-          end
-        end
-        inherited InformationGroupBox: TGroupBox
-          ClientHeight = 528
-        end
       end
     end
     object RecipesTabSheet: TTabSheet

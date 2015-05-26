@@ -44,7 +44,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="12">
+    <Units Count="4">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -74,42 +74,6 @@
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="PlanningDay"/>
       </Unit3>
-      <Unit4>
-        <Filename Value="external_libs/generics.strings.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="Generics.Strings"/>
-      </Unit4>
-      <Unit5>
-        <Filename Value="external_libs/generics.hashes.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="Generics.Hashes"/>
-      </Unit5>
-      <Unit6>
-        <Filename Value="external_libs/generics.memoryexpanders.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="Generics.MemoryExpanders"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="external_libs/generics.defaults.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit7>
-      <Unit8>
-        <Filename Value="external_libs/generics.helpers.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="external_libs/generics.collections.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="Generics.Collections"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="external_libs/inc/generics.dictionariesh.inc"/>
-        <IsPartOfProject Value="True"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="external_libs/inc/generics.dictionaries.inc"/>
-        <IsPartOfProject Value="True"/>
-      </Unit11>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -137,7 +101,7 @@
     </Other>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="3">
+    <Exceptions Count="4">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -147,6 +111,9 @@
       <Item3>
         <Name Value="EFOpenError"/>
       </Item3>
+      <Item4>
+        <Name Value="EReadError"/>
+      </Item4>
     </Exceptions>
   </Debugging>
 </CONFIG>

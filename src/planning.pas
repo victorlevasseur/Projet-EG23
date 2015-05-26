@@ -9,7 +9,7 @@ uses
   ExtCtrls, Dialogs, DbCtrls, PlanningDay, fgl;
 
 type
-  TPlanningDayControlsMap2 = specialize TFPGMap<TMealtime, PPlanningDayControl>;
+  TPlanningDayControlsMap2 = specialize TFPGMap<TMealtime, TPlanningDayControl>;
   TPlanningDayControlsMap = specialize TFPGMap<TDayOfWeek, TPlanningDayControlsMap2>;
 
   { TPlanningFrame }
@@ -20,8 +20,6 @@ type
       InfoRecipeDbf: TDbf;
     InformationGroupBox: TGroupBox;
     InformationPageControl: TPageControl;
-    PlanningDayControl1: TPlanningDayControl;
-    PlanningDayControl2: TPlanningDayControl;
     ScrollBox1: TScrollBox;
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
@@ -34,7 +32,7 @@ type
     procedure OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
         TypeOfRecipe: TRecipeType; RecipeId: Integer);
 
-    procedure RegisterPlanningDayControl(var Control: TPlanningDayControl);
+    procedure CreatePlanningDayControl(Day: TDayOfWeek; Mealtime: TMealtime);
 
   private
     { Un tableau associatif pour associer un repas (jour + midi/soir) et un
@@ -59,31 +57,48 @@ begin
     InfoRecipeDbf.Locate('CODE', RecipeId, [loCaseInsensitive]);
 end;
 
-procedure TPlanningFrame.RegisterPlanningDayControl(
-    var Control: TPlanningDayControl);
+procedure TPlanningFrame.CreatePlanningDayControl(
+    Day: TDayOfWeek; Mealtime: TMealtime);
 var
   UselessIndex: Integer;
 begin
     //Si le jour n'est pas déjà dans le tableau associatif, on l'ajoute.
-    if PlanningDayControls.Find(Control.Day, UselessIndex) = False then
+    if PlanningDayControls.Find(Day, UselessIndex) = False then
     begin
-        PlanningDayControls.Add(Control.Day, TPlanningDayControlsMap2.Create);
+        PlanningDayControls.Add(Day, TPlanningDayControlsMap2.Create);
     end;
 
     //Si le repas (midi ou soir) n'est pas déjà dans le sous-tableau associatif,
     //on l'ajoute
-    if PlanningDayControls[Control.Day].Find(Control.Mealtime, UselessIndex)
+    if PlanningDayControls[Day].Find(Mealtime, UselessIndex)
        = False then
     begin
-        PlanningDayControls[Control.Day].Add(Control.Mealtime);
+        PlanningDayControls[Day].Add(Mealtime);
     end;
 
-    //Enfin, on affecte un pointeur vers le PlanningDayControl à cette clé du
-    //tableau associatif
-    PlanningDayControls[Control.Day][Control.Mealtime] := @Control;
+    //Enfin, on crée un nouveau TPlanningDayControl dans le tableau associatif
+    PlanningDayControls[Day][Mealtime] := TPlanningDayControl.Create(self);
+    PlanningDayControls[Day][Mealtime].Name := 'PlanningDayControl_' +
+        IntToStr(Integer(Day)) + '_' + IntToStr(Integer(Mealtime));
+
+    //On affecte un parent au contrôle
+    PlanningDayControls[Day][Mealtime].Parent := ScrollBox1;
+
+    //On positionne le contrôle selon son jour et le repas
+    if Mealtime = mtLunch then
+        PlanningDayControls[Day][Mealtime].Top := 45
+    else if Mealtime = mtDinner then
+        PlanningDayControls[Day][Mealtime].Top := 285;
+
+    PlanningDayControls[Day][Mealtime].Left := 125 + (Integer(Day) - 1) * 320;
+
+    //Connexion à l'event handler
+    PlanningDayControls[Day][Mealtime].OnDishSelected := @OnDishSelected;
 end;
 
 constructor TPlanningFrame.Create(AOwner: TComponent);
+var
+  Day: TDayOfWeek;
 begin
      inherited Create(AOwner);
 
@@ -93,15 +108,14 @@ begin
      InfoRecipeDbf.TableName :='RECETTES.DBF';
      InfoRecipeDbf.Open;
 
-     //Affectation des jours et des repas aux différents TPlanningDayControls
+     //Création dynamique des TPlanningDayControls
      PlanningDayControls := TPlanningDayControlsMap.Create;
 
-     RegisterPlanningDayControl(PlanningDayControl1);
-     RegisterPlanningDayControl(PlanningDayControl2);
-
-     //Initialisation des events handlers
-     PlanningDayControl1.OnDishSelected := @OnDishSelected;
-     PlanningDayControl2.OnDishSelected := @OnDishSelected;
+     for Day := dowMonday to dowSunday do
+     begin
+         CreatePlanningDayControl(Day, mtLunch);
+         CreatePlanningDayControl(Day, mtDinner);
+     end;
 end;
 
 end.

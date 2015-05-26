@@ -2,17 +2,17 @@ object PlanningFrame: TPlanningFrame
   Left = 0
   Height = 591
   Top = 0
-  Width = 883
+  Width = 1029
   ClientHeight = 591
-  ClientWidth = 883
+  ClientWidth = 1029
   TabOrder = 0
-  DesignLeft = 343
-  DesignTop = 227
+  DesignLeft = 341
+  DesignTop = 52
   object ToolBar1: TToolBar
     Left = 0
     Height = 26
     Top = 0
-    Width = 883
+    Width = 1029
     Caption = 'ToolBar1'
     ShowCaptions = True
     TabOrder = 0
@@ -37,28 +37,15 @@ object PlanningFrame: TPlanningFrame
   object ScrollBox1: TScrollBox
     Left = 0
     Height = 559
-    Top = 32
-    Width = 616
-    HorzScrollBar.Page = 612
+    Top = 24
+    Width = 762
+    HorzScrollBar.Page = 758
     VertScrollBar.Page = 555
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 555
-    ClientWidth = 612
     TabOrder = 1
-    inline PlanningDayControl1: TPlanningDayControl
-      Left = 45
-      Top = 45
-      DesignLeft = 396
-      DesignTop = 222
-    end
-    inline PlanningDayControl2: TPlanningDayControl
-      Left = 59
-      Top = 333
-      TabOrder = 1
-    end
   end
   object InformationGroupBox: TGroupBox
-    Left = 624
+    Left = 770
     Height = 559
     Top = 32
     Width = 259
@@ -105,12 +92,12 @@ object PlanningFrame: TPlanningFrame
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
-    left = 648
+    left = 856
     top = 536
   end
   object InfoRecipeDS: TDatasource
     DataSet = InfoRecipeDbf
-    left = 736
+    left = 976
     top = 536
   end
 end
