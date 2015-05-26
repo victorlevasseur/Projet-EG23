@@ -38,16 +38,23 @@ object PlanningFrame: TPlanningFrame
     Left = 0
     Height = 559
     Top = 32
-    Width = 595
-    HorzScrollBar.Page = 591
+    Width = 616
+    HorzScrollBar.Page = 612
     VertScrollBar.Page = 555
     Anchors = [akTop, akLeft, akRight, akBottom]
     ClientHeight = 555
-    ClientWidth = 591
+    ClientWidth = 612
     TabOrder = 1
     inline PlanningDayControl1: TPlanningDayControl
       Left = 45
       Top = 45
+      DesignLeft = 396
+      DesignTop = 222
+    end
+    inline PlanningDayControl2: TPlanningDayControl
+      Left = 59
+      Top = 333
+      TabOrder = 1
     end
   end
   object InformationGroupBox: TGroupBox
@@ -74,7 +81,36 @@ object PlanningFrame: TPlanningFrame
       end
       object EditTabSheet: TTabSheet
         Caption = 'EditTabSheet'
+        ClientHeight = 536
+        ClientWidth = 256
+        object InfoRecipeNameLabel: TDBText
+          Left = 8
+          Height = 15
+          Top = 24
+          Width = 240
+          Alignment = taCenter
+          AutoSize = False
+          DataField = 'INTITULE'
+          DataSource = InfoRecipeDS
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
       end
     end
+  end
+  object InfoRecipeDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 648
+    top = 536
+  end
+  object InfoRecipeDS: TDatasource
+    DataSet = InfoRecipeDbf
+    left = 736
+    top = 536
   end
 end

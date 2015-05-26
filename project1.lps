@@ -8,7 +8,7 @@
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="project1"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit0>
       <Unit1>
         <Filename Value="src/unit1.pas"/>
@@ -20,7 +20,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="14" Y="45"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit1>
       <Unit2>
         <Filename Value="src/planning.pas"/>
@@ -29,11 +29,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="Planning"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="8"/>
-        <CursorPos X="92" Y="41"/>
-        <UsageCount Value="29"/>
+        <TopLine Value="19"/>
+        <CursorPos X="9" Y="48"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -44,12 +45,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="PlanningDay"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="31" Y="15"/>
-        <UsageCount Value="28"/>
+        <TopLine Value="97"/>
+        <CursorPos X="6" Y="127"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -76,123 +76,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="38" Column="38" TopLine="1"/>
+        <Caret Line="86" Column="32" TopLine="64"/>
       </Position1>
       <Position2>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="41" Column="34" TopLine="1"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="50" Column="49" TopLine="5"/>
       </Position2>
       <Position3>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="37" Column="28" TopLine="1"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="43" Column="16" TopLine="1"/>
       </Position3>
       <Position4>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="38" Column="28" TopLine="1"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="9" Column="12" TopLine="5"/>
       </Position4>
       <Position5>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="45" Column="38" TopLine="1"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="43" Column="17" TopLine="5"/>
       </Position5>
       <Position6>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="38" Column="6" TopLine="14"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="50" Column="59" TopLine="5"/>
       </Position6>
       <Position7>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="50" Column="44" TopLine="16"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="46" Column="29" TopLine="5"/>
       </Position7>
       <Position8>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="27" Column="15" TopLine="2"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="41" Column="26" TopLine="5"/>
       </Position8>
       <Position9>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="61" Column="90" TopLine="16"/>
+        <Caret Line="102" Column="38" TopLine="74"/>
       </Position9>
       <Position10>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="97" Column="21" TopLine="61"/>
+        <Caret Line="100" Column="33" TopLine="74"/>
       </Position10>
       <Position11>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="31" Column="10" TopLine="8"/>
+        <Caret Line="102" Column="36" TopLine="77"/>
       </Position11>
       <Position12>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="103" Column="22" TopLine="64"/>
+        <Caret Line="167" Column="6" TopLine="142"/>
       </Position12>
       <Position13>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="42" Column="30" TopLine="31"/>
+        <Caret Line="91" Column="4" TopLine="66"/>
       </Position13>
       <Position14>
-        <Filename Value="src/planningday.pas"/>
-        <Caret Line="100" Column="81" TopLine="75"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="51" Column="6" TopLine="5"/>
       </Position14>
       <Position15>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="110" Column="108" TopLine="63"/>
+        <Caret Line="171" Column="27" TopLine="3"/>
       </Position15>
       <Position16>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="114" Column="78" TopLine="82"/>
+        <Caret Line="106" Column="33" TopLine="80"/>
       </Position16>
       <Position17>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="86" Column="32" TopLine="64"/>
+        <Caret Line="19" Column="64" TopLine="1"/>
       </Position17>
       <Position18>
-        <Filename Value="src/planning.pas"/>
-        <Caret Line="50" Column="49" TopLine="5"/>
+        <Filename Value="src/planningday.pas"/>
+        <Caret Line="13" Column="17" TopLine="1"/>
       </Position18>
       <Position19>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="43" Column="16" TopLine="1"/>
+        <Caret Line="33" Column="55" TopLine="8"/>
       </Position19>
       <Position20>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="9" Column="12" TopLine="5"/>
+        <Caret Line="32" Column="82" TopLine="8"/>
       </Position20>
       <Position21>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="43" Column="17" TopLine="5"/>
+        <Caret Line="33" Column="82" TopLine="8"/>
       </Position21>
       <Position22>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="50" Column="59" TopLine="5"/>
+        <Caret Line="32" Column="82" TopLine="8"/>
       </Position22>
       <Position23>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="46" Column="29" TopLine="5"/>
+        <Caret Line="33" Column="82" TopLine="8"/>
       </Position23>
       <Position24>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="41" Column="26" TopLine="5"/>
+        <Caret Line="57" Column="21" TopLine="11"/>
       </Position24>
       <Position25>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="102" Column="38" TopLine="74"/>
+        <Caret Line="120" Column="59" TopLine="78"/>
       </Position25>
       <Position26>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="100" Column="33" TopLine="74"/>
+        <Caret Line="20" Column="31" TopLine="1"/>
       </Position26>
       <Position27>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="102" Column="36" TopLine="77"/>
+        <Caret Line="108" Column="15" TopLine="74"/>
       </Position27>
       <Position28>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="167" Column="6" TopLine="142"/>
+        <Caret Line="118" Column="19" TopLine="83"/>
       </Position28>
       <Position29>
         <Filename Value="src/planningday.pas"/>
-        <Caret Line="91" Column="4" TopLine="66"/>
+        <Caret Line="103" Column="8" TopLine="83"/>
       </Position29>
       <Position30>
-        <Filename Value="src/planning.pas"/>
-        <Caret Line="51" Column="6" TopLine="5"/>
+        <Filename Value="src/planningday.pas"/>
+        <Caret Line="99" Column="1" TopLine="74"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

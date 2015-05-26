@@ -9,8 +9,8 @@ object PlanningDayControl: TPlanningDayControl
   ClientHeight = 204
   ClientWidth = 272
   TabOrder = 0
-  DesignLeft = 396
-  DesignTop = 222
+  DesignLeft = 420
+  DesignTop = 501
   object ListView1: TListView
     Left = 0
     Height = 152
