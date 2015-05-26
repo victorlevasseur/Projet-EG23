@@ -10,8 +10,14 @@ uses
 
 type
 
-  TPlanningDayClickEvent = procedure (Day: string; MomentOfDay: string;
-    TypeOfRecipe: string) of object;
+  TDayOfWeek = (dowNone, dowMonday, dowTuesday, dowWednesday, dowThursday, dowFriday, dowSaturday, dowSunday);
+
+  TMealtime = (mtNone, mtLunch, mtDinner);
+
+  TRecipeType = (rtNone, rtStarter, rtMeal, rtDessert);
+
+  TPlanningDayClickEvent = procedure (Day: TDayOfWeek; Mealtime: TMealtime;
+    TypeOfRecipe: TRecipeType) of object;
 
   { TPlanningDayControl }
   //Cette classe est un contrôle permettant d'afficher le contenu d'un repas
@@ -70,8 +76,8 @@ type
 
   public
     //Info à propos du jour et du repas auquel ce contrôle correspond
-    Day: string;
-    MomentOfDay: string;
+    Day: TDayOfWeek;
+    Mealtime: TMealtime;
   end;
 
 implementation
@@ -88,20 +94,20 @@ end;
 procedure TPlanningDayControl.ListView1SelectItem(Sender: TObject;
   Item: TListItem; Selected: Boolean);
 var
-   DishType: string;
+   DishType: TRecipeType;
 begin
      //Prendre en compte uniquement les événements de sélection (et pas de
      //déselection) et juste si l'event handler OnDishSelected est "lié"
      if Selected and Assigned(OnDishSelected) then
      begin
           if Item.Index = 0 then
-              DishType := 'Entrée'
+              DishType := rtStarter
           else if Item.Index = 1 then
-              DishType := 'Plat'
+              DishType := rtMeal
           else
-              DishType := 'Dessert';
+              DishType := rtDessert;
 
-          OnDishSelected(Day, MomentOfDay, DishType);
+          OnDishSelected(Day, Mealtime, DishType);
      end;
 end;
 
@@ -161,8 +167,8 @@ begin
      MealId := -1;
      DessertId := -1;
 
-     Day := '';
-     MomentOfDay := '';
+     Day := dowNone;
+     Mealtime := mtNone;
 
      RecipeDbf.FilePathFull := GetCurrentDir();
      RecipeDbf.TableLevel := 4;
