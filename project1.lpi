@@ -14,6 +14,9 @@
       <EnableI18N LFM="False"/>
     </i18n>
     <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <MinorVersionNr Value="1"/>
+      <Language Value="040C"/>
       <StringTable ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -41,7 +44,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="12">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -71,6 +74,42 @@
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="PlanningDay"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="external_libs/generics.strings.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Generics.Strings"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="external_libs/generics.hashes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Generics.Hashes"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="external_libs/generics.memoryexpanders.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Generics.MemoryExpanders"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="external_libs/generics.defaults.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="external_libs/generics.helpers.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="external_libs/generics.collections.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Generics.Collections"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="external_libs/inc/generics.dictionariesh.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="external_libs/inc/generics.dictionaries.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit11>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -79,8 +118,8 @@
       <Filename Value="project1"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="src"/>
+      <IncludeFiles Value="$(ProjOutDir);external_libs/inc"/>
+      <OtherUnitFiles Value="src;external_libs"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

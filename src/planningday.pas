@@ -80,6 +80,8 @@ type
     Mealtime: TMealtime;
   end;
 
+  PPlanningDayControl = ^TPlanningDayControl;
+
 implementation
 
 {$R *.lfm}
