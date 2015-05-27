@@ -20,6 +20,7 @@ type
       InfoRecipeDbf: TDbf;
     InformationGroupBox: TGroupBox;
     InformationPageControl: TPageControl;
+    InfoDayMealtimeLabel: TLabel;
     ScrollBox1: TScrollBox;
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
@@ -54,7 +55,26 @@ implementation
 procedure TPlanningFrame.OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
     TypeOfRecipe: TRecipeType; RecipeId: Integer);
 begin
+    //Sélection de la recette dans le base de données
     InfoRecipeDbf.Locate('CODE', RecipeId, [loCaseInsensitive]);
+
+    //Affichage du jour et du repas dans le panneau d'informations
+    case Day of
+        dowMonday: InfoDayMealtimeLabel.Caption := 'Lundi';
+        dowTuesday: InfoDayMealtimeLabel.Caption := 'Mardi';
+        dowWednesday: InfoDayMealtimeLabel.Caption := 'Mercredi';
+        dowThursday: InfoDayMealtimeLabel.Caption := 'Jeudi';
+        dowFriday: InfoDayMealtimeLabel.Caption := 'Vendredi';
+        dowSaturday: InfoDayMealtimeLabel.Caption := 'Samedi';
+        dowSunday: InfoDayMealtimeLabel.Caption := 'Dimanche';
+    else InfoDayMealtimeLabel.Caption := '';
+    end;
+
+    case Mealtime of
+        mtLunch: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Midi';
+        mtDinner: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Soir';
+    else InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + '';
+    end;
 end;
 
 procedure TPlanningFrame.CreatePlanningDayControl(
@@ -83,6 +103,10 @@ begin
 
     //On affecte un parent au contrôle
     PlanningDayControls[Day][Mealtime].Parent := ScrollBox1;
+
+    //On affecte le jour et le repas au contrôle
+    PlanningDayControls[Day][Mealtime].Day := Day;
+    PlanningDayControls[Day][Mealtime].Mealtime := Mealtime;
 
     //On positionne le contrôle selon son jour et le repas
     if Mealtime = mtLunch then

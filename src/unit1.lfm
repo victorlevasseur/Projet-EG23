@@ -2,17 +2,17 @@ object Form1: TForm1
   Left = 662
   Height = 673
   Top = 178
-  Width = 1004
+  Width = 1047
   Caption = 'Logiciel de gestion de repas'
   ClientHeight = 654
-  ClientWidth = 1004
+  ClientWidth = 1047
   Menu = MainMenu
   LCLVersion = '1.2.0.3'
   object MainPageControl: TPageControl
     Left = 0
     Height = 654
     Top = 0
-    Width = 1004
+    Width = 1047
     ActivePage = PlanningTabSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
     TabIndex = 0
@@ -20,10 +20,11 @@ object Form1: TForm1
     object PlanningTabSheet: TTabSheet
       Caption = 'Planning des repas de la semaine'
       ClientHeight = 617
-      ClientWidth = 996
+      ClientWidth = 1039
       inline PlanningFrame1: TPlanningFrame
         Left = 5
         Top = 11
+        Anchors = [akTop, akLeft, akRight, akBottom]
       end
     end
     object RecipesTabSheet: TTabSheet

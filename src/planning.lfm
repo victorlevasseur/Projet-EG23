@@ -6,8 +6,8 @@ object PlanningFrame: TPlanningFrame
   ClientHeight = 591
   ClientWidth = 1029
   TabOrder = 0
-  DesignLeft = 341
-  DesignTop = 52
+  DesignLeft = 328
+  DesignTop = 164
   object ToolBar1: TToolBar
     Left = 0
     Height = 26
@@ -55,10 +55,10 @@ object PlanningFrame: TPlanningFrame
     ClientWidth = 255
     TabOrder = 2
     object InformationPageControl: TPageControl
-      Left = -2
-      Height = 536
-      Top = -5
-      Width = 256
+      Left = 4
+      Height = 528
+      Top = 3
+      Width = 248
       ActivePage = EditTabSheet
       ShowTabs = False
       TabIndex = 1
@@ -68,17 +68,31 @@ object PlanningFrame: TPlanningFrame
       end
       object EditTabSheet: TTabSheet
         Caption = 'EditTabSheet'
-        ClientHeight = 536
-        ClientWidth = 256
+        ClientHeight = 528
+        ClientWidth = 248
         object InfoRecipeNameLabel: TDBText
           Left = 8
           Height = 15
           Top = 24
-          Width = 240
+          Width = 232
           Alignment = taCenter
           AutoSize = False
           DataField = 'INTITULE'
           DataSource = InfoRecipeDS
+          Font.Height = -13
+          Font.Name = 'Sans'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object InfoDayMealtimeLabel: TLabel
+          Left = 8
+          Height = 15
+          Top = 0
+          Width = 232
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'InfoDayMealtimeLabel'
           Font.Height = -13
           Font.Name = 'Sans'
           Font.Style = [fsBold]
