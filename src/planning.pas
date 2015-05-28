@@ -11,6 +11,7 @@ uses
 type
   TPlanningDayControlsMap2 = specialize TFPGMap<TMealtime, TPlanningDayControl>;
   TPlanningDayControlsMap = specialize TFPGMap<TDayOfWeek, TPlanningDayControlsMap2>;
+  TLabelList = array of TLabel;
 
   { TPlanningFrame }
 
@@ -22,6 +23,8 @@ type
     InformationPageControl: TPageControl;
     InfoDayMealtimeLabel: TLabel;
     CenterLabel: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
     ScrollPanel: TPanel;
     InsideScrollPanel: TPanel;
     ScrollBar1: TScrollBar;
@@ -48,16 +51,16 @@ type
     //corectement
     procedure SetPlanningDayControlAnchors(Day: TDayOfWeek);
 
+    //Crée les labels affichant les jours
+    procedure AddDayLabels();
+
   private
     { Un tableau associatif pour associer un repas (jour + midi/soir) et un
       contrôle PlanningDayControl }
     PlanningDayControls: TPlanningDayControlsMap;
 
-    //Ancienne position de la scrollbar pour calculer son déplacement
-    //(obligé de gérer la scrollbar manuellement à cause d'un bug avec
-    //le TScrollBox contenant des widgets avec des ancres qui provoque
-    //l'effacement de la barre de défilement)
-    OldScrollBarPos: Integer;
+    //Tableau avec les labels créés pour chaque jours
+    LabelList: TLabelList;
 
   public
     { public declarations }
@@ -86,7 +89,6 @@ procedure TPlanningFrame.ScrollBar1Scroll(Sender: TObject;
     ScrollCode: TScrollCode; var ScrollPos: Integer);
 begin
     InsideScrollPanel.Left := -ScrollPos;
-    OldScrollBarPos := ScrollPos;
 end;
 
 procedure TPlanningFrame.OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
@@ -171,13 +173,38 @@ begin
     PlanningDayControls[Day][mtDinner].Anchors := [akBottom, akLeft, akTop];
 end;
 
+procedure TPlanningFrame.AddDayLabels();
+var
+  Day: TDayOfWeek;
+begin
+    SetLength(LabelList, 9);
+
+    for Day := dowMonday to dowSunday do
+    begin
+        LabelList[Integer(Day) - 1] := TLabel.Create(self);
+        LabelList[Integer(Day) - 1].Name := 'DayLabel' + IntToStr(Integer(Day));
+        LabelList[Integer(Day) - 1].Parent := InsideScrollPanel;
+        LabelList[Integer(Day) - 1].Left := 145 + (Integer(Day) - 1) * 320;
+        LabelList[Integer(Day) - 1].Top := 20;
+        LabelList[Integer(Day) - 1].Font.Bold := True;
+        case Day of
+            dowMonday: LabelList[Integer(Day) - 1].Caption := 'Lundi';
+            dowTuesday: LabelList[Integer(Day) - 1].Caption := 'Mardi';
+            dowWednesday: LabelList[Integer(Day) - 1].Caption := 'Mercredi';
+            dowThursday: LabelList[Integer(Day) - 1].Caption := 'Jeudi';
+            dowFriday: LabelList[Integer(Day) - 1].Caption := 'Vendredi';
+            dowSaturday: LabelList[Integer(Day) - 1].Caption := 'Samedi';
+            dowSunday: LabelList[Integer(Day) - 1].Caption := 'Dimanche';
+        else LabelList[Integer(Day) - 1].Caption := '';
+        end;
+    end;
+end;
+
 constructor TPlanningFrame.Create(AOwner: TComponent);
 var
   Day: TDayOfWeek;
 begin
      inherited Create(AOwner);
-
-     OldScrollBarPos := 0;
 
      //Chargement de(s) base(s) de données
      InfoRecipeDbf.FilePathFull := GetCurrentDir();
@@ -194,6 +221,7 @@ begin
          CreatePlanningDayControl(Day, mtDinner);
          SetPlanningDayControlAnchors(Day);
      end;
+     AddDayLabels();
 end;
 
 end.

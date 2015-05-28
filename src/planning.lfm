@@ -137,6 +137,36 @@ object PlanningFrame: TPlanningFrame
         Caption = ' '
         ParentColor = False
       end
+      object Label1: TLabel
+        AnchorSideTop.Control = InsideScrollPanel
+        AnchorSideBottom.Control = CenterLabel
+        AnchorSideBottom.Side = asrBottom
+        Left = 47
+        Height = 272
+        Top = 1
+        Width = 31
+        Anchors = [akTop, akLeft, akBottom]
+        Caption = 'Midi'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        AnchorSideTop.Control = CenterLabel
+        AnchorSideBottom.Control = InsideScrollPanel
+        AnchorSideBottom.Side = asrBottom
+        Left = 53
+        Height = 271
+        Top = 258
+        Width = 28
+        Anchors = [akTop, akLeft, akBottom]
+        Caption = 'Soir'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+      end
     end
   end
   object InfoRecipeDbf: TDbf

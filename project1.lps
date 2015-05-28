@@ -11,7 +11,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="38"/>
       </Unit0>
       <Unit1>
         <Filename Value="src/unit1.pas"/>
@@ -23,7 +23,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="14" Y="45"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="38"/>
       </Unit1>
       <Unit2>
         <Filename Value="src/planning.pas"/>
@@ -35,9 +35,9 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="99"/>
-        <CursorPos X="74" Y="123"/>
-        <UsageCount Value="36"/>
+        <TopLine Value="26"/>
+        <CursorPos X="27" Y="61"/>
+        <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -50,9 +50,9 @@
         <UnitName Value="PlanningDay"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="36"/>
-        <CursorPos X="101" Y="51"/>
-        <UsageCount Value="35"/>
+        <TopLine Value="42"/>
+        <CursorPos X="65" Y="74"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -170,7 +170,7 @@
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="19" HistoryIndex="18">
       <Position1>
         <Filename Value="src/planning.pas"/>
         <Caret Line="23" Column="5" TopLine="12"/>
@@ -191,6 +191,62 @@
         <Filename Value="src/planning.pas"/>
         <Caret Line="136" Column="101" TopLine="108"/>
       </Position5>
+      <Position6>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="164" Column="10" TopLine="119"/>
+      </Position6>
+      <Position7>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="173" Column="57" TopLine="124"/>
+      </Position7>
+      <Position8>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="93" Column="34" TopLine="53"/>
+      </Position8>
+      <Position9>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="84" Column="32" TopLine="55"/>
+      </Position9>
+      <Position10>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="74" Column="5" TopLine="54"/>
+      </Position10>
+      <Position11>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="75" Column="5" TopLine="55"/>
+      </Position11>
+      <Position12>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="91" Column="113" TopLine="127"/>
+      </Position12>
+      <Position13>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="170" Column="78" TopLine="146"/>
+      </Position13>
+      <Position14>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="169" Column="78" TopLine="145"/>
+      </Position14>
+      <Position15>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="168" Column="78" TopLine="144"/>
+      </Position15>
+      <Position16>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="177" Column="59" TopLine="144"/>
+      </Position16>
+      <Position17>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="89" Column="57" TopLine="58"/>
+      </Position17>
+      <Position18>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="183" Column="9" TopLine="142"/>
+      </Position18>
+      <Position19>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="179" Column="19" TopLine="155"/>
+      </Position19>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>
