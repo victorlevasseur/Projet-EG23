@@ -34,16 +34,6 @@ object PlanningFrame: TPlanningFrame
       Caption = 'Liste de courses'
     end
   end
-  object ScrollBox1: TScrollBox
-    Left = 0
-    Height = 559
-    Top = 24
-    Width = 762
-    HorzScrollBar.Page = 758
-    VertScrollBar.Page = 555
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    TabOrder = 1
-  end
   object InformationGroupBox: TGroupBox
     Left = 770
     Height = 559
@@ -53,7 +43,7 @@ object PlanningFrame: TPlanningFrame
     Caption = 'Information'
     ClientHeight = 528
     ClientWidth = 255
-    TabOrder = 2
+    TabOrder = 1
     object InformationPageControl: TPageControl
       Left = 4
       Height = 528
@@ -99,6 +89,53 @@ object PlanningFrame: TPlanningFrame
           ParentColor = False
           ParentFont = False
         end
+      end
+    end
+  end
+  object ScrollBar1: TScrollBar
+    Left = 0
+    Height = 16
+    Top = 568
+    Width = 761
+    Anchors = [akLeft, akRight, akBottom]
+    Max = 2365
+    PageSize = 100
+    SmallChange = 50
+    TabOrder = 2
+    OnChange = ScrollBar1Change
+    OnScroll = ScrollBar1Scroll
+  end
+  object ScrollPanel: TPanel
+    Left = 0
+    Height = 530
+    Top = 32
+    Width = 768
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Caption = 'ScrollPanel'
+    ClientHeight = 530
+    ClientWidth = 768
+    TabOrder = 3
+    OnResize = ScrollPanelResize
+    object InsideScrollPanel: TPanel
+      Left = 1
+      Height = 530
+      Top = 0
+      Width = 2365
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      Caption = 'InsideScrollPanel'
+      ClientHeight = 530
+      ClientWidth = 2365
+      TabOrder = 0
+      object CenterLabel: TLabel
+        AnchorSideTop.Control = InsideScrollPanel
+        AnchorSideTop.Side = asrCenter
+        Left = 50
+        Height = 15
+        Top = 258
+        Width = 4
+        Align = alCustom
+        Caption = ' '
+        ParentColor = False
       end
     end
   end

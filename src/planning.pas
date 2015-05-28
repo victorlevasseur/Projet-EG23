@@ -21,24 +21,43 @@ type
     InformationGroupBox: TGroupBox;
     InformationPageControl: TPageControl;
     InfoDayMealtimeLabel: TLabel;
-    ScrollBox1: TScrollBox;
+    CenterLabel: TLabel;
+    ScrollPanel: TPanel;
+    InsideScrollPanel: TPanel;
+    ScrollBar1: TScrollBar;
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
     ToolBar1: TToolBar;
     GenerateWeekButton: TToolButton;
     ShoppingListButton: TToolButton;
     ToolButton2: TToolButton;
+    procedure ScrollPanelResize(Sender: TObject);
+    procedure ScrollBar1Change(Sender: TObject);
+    procedure ScrollBar1Scroll(Sender: TObject; ScrollCode: TScrollCode;
+        var ScrollPos: Integer);
   private
     { private declarations }
     procedure OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
         TypeOfRecipe: TRecipeType; RecipeId: Integer);
 
+    //Crée le PlanningDayControl associé à un jour + repas précis
     procedure CreatePlanningDayControl(Day: TDayOfWeek; Mealtime: TMealtime);
+
+    //Dès que les deux PlanningDayControls d'un jour ont été créés, appeler
+    //cette méthode afin de configurer leurs anchors pour qu'ils soient étirés
+    //corectement
+    procedure SetPlanningDayControlAnchors(Day: TDayOfWeek);
 
   private
     { Un tableau associatif pour associer un repas (jour + midi/soir) et un
       contrôle PlanningDayControl }
     PlanningDayControls: TPlanningDayControlsMap;
+
+    //Ancienne position de la scrollbar pour calculer son déplacement
+    //(obligé de gérer la scrollbar manuellement à cause d'un bug avec
+    //le TScrollBox contenant des widgets avec des ancres qui provoque
+    //l'effacement de la barre de défilement)
+    OldScrollBarPos: Integer;
 
   public
     { public declarations }
@@ -51,6 +70,24 @@ type
 implementation
 
 {$R *.lfm}
+
+procedure TPlanningFrame.ScrollBar1Change(Sender: TObject);
+begin
+
+end;
+
+procedure TPlanningFrame.ScrollPanelResize(Sender: TObject);
+begin
+    ScrollBar1.Max := 2365 - ScrollPanel.Width;
+    ScrollBar1.PageSize := ScrollPanel.Width;
+end;
+
+procedure TPlanningFrame.ScrollBar1Scroll(Sender: TObject;
+    ScrollCode: TScrollCode; var ScrollPos: Integer);
+begin
+    InsideScrollPanel.Left := -ScrollPos;
+    OldScrollBarPos := ScrollPos;
+end;
 
 procedure TPlanningFrame.OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
     TypeOfRecipe: TRecipeType; RecipeId: Integer);
@@ -102,7 +139,7 @@ begin
         IntToStr(Integer(Day)) + '_' + IntToStr(Integer(Mealtime));
 
     //On affecte un parent au contrôle
-    PlanningDayControls[Day][Mealtime].Parent := ScrollBox1;
+    PlanningDayControls[Day][Mealtime].Parent := InsideScrollPanel;
 
     //On affecte le jour et le repas au contrôle
     PlanningDayControls[Day][Mealtime].Day := Day;
@@ -112,7 +149,7 @@ begin
     if Mealtime = mtLunch then
         PlanningDayControls[Day][Mealtime].Top := 45
     else if Mealtime = mtDinner then
-        PlanningDayControls[Day][Mealtime].Top := 285;
+        PlanningDayControls[Day][Mealtime].Top := 300;
 
     PlanningDayControls[Day][Mealtime].Left := 125 + (Integer(Day) - 1) * 320;
 
@@ -120,11 +157,27 @@ begin
     PlanningDayControls[Day][Mealtime].OnDishSelected := @OnDishSelected;
 end;
 
+procedure TPlanningFrame.SetPlanningDayControlAnchors(Day: TDayOfWeek);
+begin
+    //Définition des anchors et des contrôles sur lesquels s'ancrer
+    PlanningDayControls[Day][mtLunch].AnchorSide[akBottom].Side := asrTop;
+    PlanningDayControls[Day][mtLunch].AnchorSide[akBottom].Control := CenterLabel;
+
+    PlanningDayControls[Day][mtDinner].AnchorSide[akTop].Side := asrBottom;
+    PlanningDayControls[Day][mtDinner].AnchorSide[akTop].Control := CenterLabel;
+
+    //Ajout des anchors à utiliser
+    PlanningDayControls[Day][mtLunch].Anchors := PlanningDayControls[Day][mtLunch].Anchors + [akBottom];
+    PlanningDayControls[Day][mtDinner].Anchors := [akBottom, akLeft, akTop];
+end;
+
 constructor TPlanningFrame.Create(AOwner: TComponent);
 var
   Day: TDayOfWeek;
 begin
      inherited Create(AOwner);
+
+     OldScrollBarPos := 0;
 
      //Chargement de(s) base(s) de données
      InfoRecipeDbf.FilePathFull := GetCurrentDir();
@@ -139,6 +192,7 @@ begin
      begin
          CreatePlanningDayControl(Day, mtLunch);
          CreatePlanningDayControl(Day, mtDinner);
+         SetPlanningDayControlAnchors(Day);
      end;
 end;
 

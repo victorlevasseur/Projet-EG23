@@ -53,6 +53,7 @@ object PlanningDayControl: TPlanningDayControl
     Height = 15
     Top = 168
     Width = 89
+    Anchors = [akLeft, akBottom]
     Caption = 'DurationLabel'
     ParentColor = False
   end
@@ -61,6 +62,7 @@ object PlanningDayControl: TPlanningDayControl
     Height = 15
     Top = 184
     Width = 63
+    Anchors = [akLeft, akBottom]
     Caption = 'CostLabel'
     ParentColor = False
   end
