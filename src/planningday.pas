@@ -74,6 +74,9 @@ type
     function GetDessert : Integer;
     procedure SetDessert(Id: Integer);
 
+    //Méthode permettant de sélectionner un plat dans le contrôle
+    procedure SelectDish(RecipeType: TRecipeType);
+
   public
     //Info à propos du jour et du repas auquel ce contrôle correspond
     Day: TDayOfWeek;
@@ -220,6 +223,18 @@ procedure TPlanningDayControl.SetDessert(Id: Integer);
 begin
      DessertId := Id;
      UpdateListView;
+end;
+
+procedure TPlanningDayControl.SelectDish(RecipeType: TRecipeType);
+begin
+     if RecipeType <> rtNone then
+     begin
+        ListView1.Selected := ListView1.Items[Integer(RecipeType) - 1];
+     end
+     else
+     begin
+        ListView1.Selected := nil;
+     end;
 end;
 
 end.

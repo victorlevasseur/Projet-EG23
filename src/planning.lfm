@@ -16,12 +16,12 @@ object PlanningFrame: TPlanningFrame
     Width = 317
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Information'
-    ClientHeight = 541
+    ClientHeight = 528
     ClientWidth = 313
     TabOrder = 0
     object InformationPageControl: TPageControl
       Left = 4
-      Height = 541
+      Height = 528
       Top = 3
       Width = 304
       ActivePage = InformationTabSheet
@@ -31,21 +31,74 @@ object PlanningFrame: TPlanningFrame
       TabOrder = 0
       object InformationTabSheet: TTabSheet
         Caption = 'InformationTabSheet'
-        ClientHeight = 533
-        ClientWidth = 296
+        ClientHeight = 528
+        ClientWidth = 304
         object Label16: TLabel
           Left = 11
-          Height = 15
+          Height = 40
           Top = 8
-          Width = 263
+          Width = 288
+          AutoSize = False
           Caption = 'Choisir une recette pour remplacer la précédente :'
           ParentColor = False
+          WordWrap = True
+        end
+        object DBGrid1: TDBGrid
+          Left = 10
+          Height = 432
+          Top = 56
+          Width = 289
+          Anchors = [akTop, akLeft, akBottom]
+          Color = clWindow
+          Columns = <          
+            item
+              Title.Caption = 'Recette'
+              Width = 150
+              FieldName = 'INTITULE'
+            end          
+            item
+              Title.Caption = 'Nbr Pers'
+              FieldName = 'NBR_PERSO'
+              DisplayFormat = '# pers'
+            end          
+            item
+              Title.Caption = 'Diff'
+              Width = 50
+              FieldName = 'DIFFICULTE'
+              DisplayFormat = '#/1''0'''
+            end>
+          DataSource = InfoRecipeDS
+          DefaultRowHeight = 30
+          FixedCols = 0
+          Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+          ReadOnly = True
+          TabOrder = 0
+          TitleStyle = tsNative
+        end
+        object EditCancelButton: TButton
+          Left = 152
+          Height = 25
+          Top = 496
+          Width = 147
+          Anchors = [akLeft, akBottom]
+          Caption = 'Annuler'
+          OnClick = EditCancelButtonClick
+          TabOrder = 1
+        end
+        object EditOkButton: TButton
+          Left = 11
+          Height = 25
+          Top = 496
+          Width = 139
+          Anchors = [akLeft, akBottom]
+          Caption = 'Ok'
+          TabOrder = 2
         end
       end
       object EditTabSheet: TTabSheet
         Caption = 'EditTabSheet'
-        ClientHeight = 533
-        ClientWidth = 296
+        ClientHeight = 528
+        ClientWidth = 304
         object InfoRecipeNameLabel: TDBText
           Left = 8
           Height = 15
@@ -352,7 +405,7 @@ object PlanningFrame: TPlanningFrame
         Left = 50
         Height = 15
         Top = 258
-        Width = 3
+        Width = 4
         Align = alCustom
         Caption = ' '
         ParentColor = False
@@ -364,7 +417,7 @@ object PlanningFrame: TPlanningFrame
         Left = 50
         Height = 272
         Top = 1
-        Width = 24
+        Width = 31
         Anchors = [akTop, akLeft, akBottom]
         Caption = 'Midi'
         Font.Style = [fsBold]
@@ -379,7 +432,7 @@ object PlanningFrame: TPlanningFrame
         Left = 53
         Height = 271
         Top = 258
-        Width = 22
+        Width = 28
         Anchors = [akTop, akLeft, akBottom]
         Caption = 'Soir'
         Font.Style = [fsBold]
@@ -404,7 +457,7 @@ object PlanningFrame: TPlanningFrame
     left = 776
     top = 440
   end
-  object InfoRecipeDS: TDataSource
+  object InfoRecipeDS: TDatasource
     DataSet = InfoRecipeDbf
     left = 816
     top = 440
@@ -416,7 +469,7 @@ object PlanningFrame: TPlanningFrame
     left = 872
     top = 400
   end
-  object InfoIngrDS: TDataSource
+  object InfoIngrDS: TDatasource
     DataSet = InfoIngrDbf
     left = 912
     top = 400
@@ -428,7 +481,7 @@ object PlanningFrame: TPlanningFrame
     left = 896
     top = 464
   end
-  object InfoCompoDS: TDataSource
+  object InfoCompoDS: TDatasource
     DataSet = InfoCompoDbf
     left = 936
     top = 464

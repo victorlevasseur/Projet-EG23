@@ -17,6 +17,9 @@ type
 
   TPlanningFrame = class(TFrame)
       Button1: TButton;
+      EditOkButton: TButton;
+      EditCancelButton: TButton;
+      DBGrid1: TDBGrid;
       EditRecipeButton: TButton;
       InfoCompoDS: TDatasource;
       InfoCompoDbf: TDbf;
@@ -59,6 +62,7 @@ type
     ScrollBar1: TScrollBar;
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
+    procedure EditCancelButtonClick(Sender: TObject);
     procedure EditRecipeButtonClick(Sender: TObject);
     procedure FrameClick(Sender: TObject);
     procedure ScrollPanelResize(Sender: TObject);
@@ -93,6 +97,10 @@ type
     SelectedDay: TDayOfWeek;
     SelectedMealtime: TMealtime;
     SelectedRecipeType: TRecipeType;
+    SelectedRecipeId: Integer;
+
+    //Booléen qui est vrai si on est en mode "changement de recette"
+    IsInEditMode: Boolean;
 
   public
     { public declarations }
@@ -124,8 +132,25 @@ end;
 
 procedure TPlanningFrame.EditRecipeButtonClick(Sender: TObject);
 begin
+    //Si un plat est sélectionné, on passe en mode "changement de plat"
     if(SelectedDay <> dowNone) then
+    begin
+        IsInEditMode := True;
         InformationPageControl.PageIndex := 0;
+    end;
+end;
+
+procedure TPlanningFrame.EditCancelButtonClick(Sender: TObject);
+begin
+    InformationPageControl.PageIndex := 1;
+
+    IsInEditMode := False;
+
+    //On réinitialise l'affichage pour être sûr de bien pointer le bon plat
+    //dans le InfoRecipeDbf (on simule un clic sur le plat déjà sélectionné
+    //dans le planning).
+    OnDishSelected(SelectedDay, SelectedMealtime, SelectedRecipeType,
+        SelectedRecipeId);
 end;
 
 procedure TPlanningFrame.ScrollBar1Scroll(Sender: TObject;
@@ -141,52 +166,69 @@ var
   CodeIngr: Integer;
   Item: TListItem;
 begin
-    SelectedDay := Day;
-    SelectedMealtime := Mealtime;
-    SelectedRecipeType := TypeOfRecipe;
-
-    //Sélection de la recette dans le base de données
-    //Les informations seront automatiquement affichées avec les labels
-    InfoRecipeDbf.Locate('CODE', RecipeId, [loCaseInsensitive]);
-
-    //Affichage du jour et du repas dans le panneau d'informations
-    case Day of
-        dowMonday: InfoDayMealtimeLabel.Caption := 'Lundi';
-        dowTuesday: InfoDayMealtimeLabel.Caption := 'Mardi';
-        dowWednesday: InfoDayMealtimeLabel.Caption := 'Mercredi';
-        dowThursday: InfoDayMealtimeLabel.Caption := 'Jeudi';
-        dowFriday: InfoDayMealtimeLabel.Caption := 'Vendredi';
-        dowSaturday: InfoDayMealtimeLabel.Caption := 'Samedi';
-        dowSunday: InfoDayMealtimeLabel.Caption := 'Dimanche';
-    else InfoDayMealtimeLabel.Caption := '';
-    end;
-
-    case Mealtime of
-        mtLunch: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Midi';
-        mtDinner: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Soir';
-    else InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + '';
-    end;
-
-    //On utilise la table des compositions pour trouver les ID des ingrédients
-    //de la recette sélectionnée
-    InfoCompoDbf.Filter:='CODE_RECET=' + IntToStr(RecipeId);
-    InfoCompoDbf.Filtered:=True;
-    InfoCompoDbf.First;
-
-    //On boucle sur tous les ingrédients associés à la recette
-    InfoIngrListBox.Clear;
-    while not InfoCompoDbf.EOF do
+    if IsInEditMode and ((SelectedDay <> Day) or (SelectedMealtime <> Mealtime) or
+        (SelectedRecipeType <> TypeOfRecipe))
+        {TODO : Ajouter le demande de confirmation à l'utilisateur}  then
     begin
-        CodeIngr := InfoCompoDbf.FieldByName('CODE_INGRE').AsInteger;
+        //On est en mode édition, on demande à l'utilisateur s'il est sûr
+        //de vouloir bouger la sélection pendant qu'il édite un plat
 
-        InfoIngrDbf.Filter := 'CODE=' + IntToStr(CodeIngr);
-        InfoIngrDbf.Filtered := True;
+        //S'il le veut, on le repasse en mode édition, sinon, on abandonne le
+        //changement de sélection
 
-        Item := InfoIngrListBox.Items.Add;
-        Item.Caption := InfoIngrDbf.FieldByName('INTITULE').AsString;
-        Item.SubItems.Add(InfoCompoDbf.FieldByName('QTE').AsString + ' ' + InfoIngrDbf.FieldByName('UNITE').AsString);
+        //On remet la sélection (des listes de repas des jours) à son état
+        //initial
+    end
+    else
+    begin
+        SelectedDay := Day;
+        SelectedMealtime := Mealtime;
+        SelectedRecipeType := TypeOfRecipe;
+        SelectedRecipeId := RecipeId;
 
-        InfoCompoDbf.Next;
+        //Sélection de la recette dans le base de données
+        //Les informations seront automatiquement affichées avec les labels
+        InfoRecipeDbf.Locate('CODE', RecipeId, [loCaseInsensitive]);
+
+        //Affichage du jour et du repas dans le panneau d'informations
+        case Day of
+            dowMonday: InfoDayMealtimeLabel.Caption := 'Lundi';
+            dowTuesday: InfoDayMealtimeLabel.Caption := 'Mardi';
+            dowWednesday: InfoDayMealtimeLabel.Caption := 'Mercredi';
+            dowThursday: InfoDayMealtimeLabel.Caption := 'Jeudi';
+            dowFriday: InfoDayMealtimeLabel.Caption := 'Vendredi';
+            dowSaturday: InfoDayMealtimeLabel.Caption := 'Samedi';
+            dowSunday: InfoDayMealtimeLabel.Caption := 'Dimanche';
+        else InfoDayMealtimeLabel.Caption := '';
+        end;
+
+        case Mealtime of
+            mtLunch: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Midi';
+            mtDinner: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Soir';
+        else InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + '';
+        end;
+
+        //On utilise la table des compositions pour trouver les ID des ingrédients
+        //de la recette sélectionnée
+        InfoCompoDbf.Filter:='CODE_RECET=' + IntToStr(RecipeId);
+        InfoCompoDbf.Filtered:=True;
+        InfoCompoDbf.First;
+
+        //On boucle sur tous les ingrédients associés à la recette
+        InfoIngrListBox.Clear;
+        while not InfoCompoDbf.EOF do
+        begin
+            CodeIngr := InfoCompoDbf.FieldByName('CODE_INGRE').AsInteger;
+
+            InfoIngrDbf.Filter := 'CODE=' + IntToStr(CodeIngr);
+            InfoIngrDbf.Filtered := True;
+
+            Item := InfoIngrListBox.Items.Add;
+            Item.Caption := InfoIngrDbf.FieldByName('INTITULE').AsString;
+            Item.SubItems.Add(InfoCompoDbf.FieldByName('QTE').AsString + ' ' + InfoIngrDbf.FieldByName('UNITE').AsString);
+
+            InfoCompoDbf.Next;
+        end;
     end;
 end;
 
@@ -283,6 +325,11 @@ begin
      SelectedDay := dowNone;
      SelectedMealtime := mtNone;
      SelectedRecipeType := rtNone;
+     SelectedRecipeId := -1;
+
+     IsInEditMode := False;
+
+     InformationPageControl.PageIndex := 1;
 
      //Chargement des bases de données
      InfoRecipeDbf.FilePathFull := GetCurrentDir();

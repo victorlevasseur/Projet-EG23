@@ -3,8 +3,8 @@ object PlanningDayControl: TPlanningDayControl
   Height = 205
   Top = 0
   Width = 272
-  HorzScrollBar.Page = 1
-  VertScrollBar.Page = 1
+  HorzScrollBar.Page = 272
+  VertScrollBar.Page = 205
   AutoScroll = True
   ClientHeight = 205
   ClientWidth = 272
@@ -48,7 +48,7 @@ object PlanningDayControl: TPlanningDayControl
     Left = 8
     Height = 15
     Top = 153
-    Width = 70
+    Width = 85
     Anchors = [akLeft, akBottom]
     Caption = 'CaloriesLabel'
     ParentColor = False
@@ -57,7 +57,7 @@ object PlanningDayControl: TPlanningDayControl
     Left = 8
     Height = 15
     Top = 168
-    Width = 74
+    Width = 89
     Anchors = [akLeft, akBottom]
     Caption = 'DurationLabel'
     ParentColor = False
@@ -66,7 +66,7 @@ object PlanningDayControl: TPlanningDayControl
     Left = 8
     Height = 15
     Top = 184
-    Width = 52
+    Width = 63
     Anchors = [akLeft, akBottom]
     Caption = 'CostLabel'
     ParentColor = False
