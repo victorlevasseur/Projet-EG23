@@ -5,6 +5,7 @@ object PlanningFrame: TPlanningFrame
   Width = 1029
   ClientHeight = 591
   ClientWidth = 1029
+  OnClick = FrameClick
   TabOrder = 0
   DesignLeft = 328
   DesignTop = 164
@@ -15,31 +16,41 @@ object PlanningFrame: TPlanningFrame
     Width = 317
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Information'
-    ClientHeight = 528
+    ClientHeight = 541
     ClientWidth = 313
     TabOrder = 0
     object InformationPageControl: TPageControl
       Left = 4
-      Height = 528
+      Height = 541
       Top = 3
       Width = 304
-      ActivePage = EditTabSheet
+      ActivePage = InformationTabSheet
       Anchors = [akTop, akLeft, akBottom]
       ShowTabs = False
-      TabIndex = 1
+      TabIndex = 0
       TabOrder = 0
       object InformationTabSheet: TTabSheet
         Caption = 'InformationTabSheet'
+        ClientHeight = 533
+        ClientWidth = 296
+        object Label16: TLabel
+          Left = 11
+          Height = 15
+          Top = 8
+          Width = 263
+          Caption = 'Choisir une recette pour remplacer la précédente :'
+          ParentColor = False
+        end
       end
       object EditTabSheet: TTabSheet
         Caption = 'EditTabSheet'
-        ClientHeight = 528
-        ClientWidth = 304
+        ClientHeight = 533
+        ClientWidth = 296
         object InfoRecipeNameLabel: TDBText
           Left = 8
           Height = 15
           Top = 24
-          Width = 294
+          Width = 282
           AutoSize = False
           DataField = 'INTITULE'
           DataSource = InfoRecipeDS
@@ -53,7 +64,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 0
-          Width = 290
+          Width = 284
           AutoSize = False
           Caption = 'InfoDayMealtimeLabel'
           Font.Height = -13
@@ -66,7 +77,7 @@ object PlanningFrame: TPlanningFrame
           Left = 80
           Height = 74
           Top = 48
-          Width = 218
+          Width = 210
           AutoSize = False
           DataField = 'DESCRIPTIF'
           DataSource = InfoRecipeDS
@@ -83,7 +94,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 136
-          Width = 39
+          Width = 29
           Caption = 'Pour '
           Font.Style = [fsBold]
           ParentColor = False
@@ -93,7 +104,7 @@ object PlanningFrame: TPlanningFrame
           Left = 50
           Height = 15
           Top = 136
-          Width = 59
+          Width = 50
           DataField = 'NBR_PERSO'
           DataSource = InfoRecipeDS
           Font.Style = [fsBold]
@@ -103,10 +114,10 @@ object PlanningFrame: TPlanningFrame
         object Label4: TLabel
           AnchorSideLeft.Control = DBText2
           AnchorSideLeft.Side = asrBottom
-          Left = 115
+          Left = 106
           Height = 15
           Top = 136
-          Width = 89
+          Width = 65
           BorderSpacing.Left = 6
           Caption = 'personne(s)'
           Font.Style = [fsBold]
@@ -117,7 +128,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 160
-          Width = 67
+          Width = 57
           Caption = 'Difficulté : '
           ParentColor = False
         end
@@ -125,7 +136,7 @@ object PlanningFrame: TPlanningFrame
           Left = 80
           Height = 15
           Top = 160
-          Width = 52
+          Width = 43
           DataField = 'DIFFICULTE'
           DataSource = InfoRecipeDS
           ParentColor = False
@@ -133,10 +144,10 @@ object PlanningFrame: TPlanningFrame
         object Label6: TLabel
           AnchorSideLeft.Control = DBText3
           AnchorSideLeft.Side = asrBottom
-          Left = 138
+          Left = 129
           Height = 15
           Top = 160
-          Width = 24
+          Width = 20
           BorderSpacing.Left = 6
           Caption = '/ 10'
           ParentColor = False
@@ -145,7 +156,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 184
-          Width = 114
+          Width = 94
           Caption = 'Temps de prépa. :'
           ParentColor = False
         end
@@ -153,7 +164,7 @@ object PlanningFrame: TPlanningFrame
           Left = 128
           Height = 15
           Top = 184
-          Width = 52
+          Width = 43
           DataField = 'PREPARATIO'
           DataSource = InfoRecipeDS
           ParentColor = False
@@ -161,10 +172,10 @@ object PlanningFrame: TPlanningFrame
         object Label8: TLabel
           AnchorSideLeft.Control = DBText4
           AnchorSideLeft.Side = asrBottom
-          Left = 186
+          Left = 177
           Height = 15
           Top = 184
-          Width = 24
+          Width = 21
           BorderSpacing.Left = 6
           Caption = 'min'
           ParentColor = False
@@ -174,7 +185,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 208
-          Width = 121
+          Width = 101
           Caption = 'Temps de cuisson :'
           ParentColor = False
         end
@@ -184,7 +195,7 @@ object PlanningFrame: TPlanningFrame
           Left = 138
           Height = 15
           Top = 208
-          Width = 52
+          Width = 43
           DataField = 'TPS_CUISSO'
           DataSource = InfoRecipeDS
           ParentColor = False
@@ -192,10 +203,10 @@ object PlanningFrame: TPlanningFrame
         object Label10: TLabel
           AnchorSideLeft.Control = DBText5
           AnchorSideLeft.Side = asrBottom
-          Left = 196
+          Left = 187
           Height = 15
           Top = 208
-          Width = 24
+          Width = 21
           BorderSpacing.Left = 6
           Caption = 'min'
           ParentColor = False
@@ -204,7 +215,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 232
-          Width = 59
+          Width = 48
           Caption = 'Calories :'
           ParentColor = False
         end
@@ -212,7 +223,7 @@ object PlanningFrame: TPlanningFrame
           Left = 74
           Height = 15
           Top = 232
-          Width = 52
+          Width = 43
           DataField = 'CALORIE'
           DataSource = InfoRecipeDS
           ParentColor = False
@@ -220,10 +231,10 @@ object PlanningFrame: TPlanningFrame
         object Label12: TLabel
           AnchorSideLeft.Control = DBText6
           AnchorSideLeft.Side = asrBottom
-          Left = 132
+          Left = 123
           Height = 15
           Top = 232
-          Width = 27
+          Width = 23
           BorderSpacing.Left = 6
           Caption = 'kCal'
           ParentColor = False
@@ -232,7 +243,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 256
-          Width = 156
+          Width = 115
           Caption = 'Coût (approximatif) :'
           Font.Style = [fsBold]
           ParentColor = False
@@ -242,7 +253,7 @@ object PlanningFrame: TPlanningFrame
           Left = 170
           Height = 15
           Top = 256
-          Width = 59
+          Width = 50
           DataField = 'COUT'
           DataSource = InfoRecipeDS
           Font.Style = [fsBold]
@@ -252,10 +263,10 @@ object PlanningFrame: TPlanningFrame
         object Label14: TLabel
           AnchorSideLeft.Control = DBText7
           AnchorSideLeft.Side = asrBottom
-          Left = 235
+          Left = 226
           Height = 15
           Top = 256
-          Width = 8
+          Width = 6
           BorderSpacing.Left = 6
           Caption = '€'
           ParentColor = False
@@ -264,7 +275,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 280
-          Width = 194
+          Width = 144
           Caption = 'Ingrédients de la recette :'
           Font.Style = [fsBold]
           ParentColor = False
@@ -272,9 +283,9 @@ object PlanningFrame: TPlanningFrame
         end
         object InfoIngrListBox: TListView
           Left = 8
-          Height = 184
+          Height = 189
           Top = 296
-          Width = 290
+          Width = 282
           Anchors = [akTop, akLeft, akBottom]
           Columns = <          
             item
@@ -291,10 +302,11 @@ object PlanningFrame: TPlanningFrame
         object EditRecipeButton: TButton
           Left = 8
           Height = 25
-          Top = 488
-          Width = 290
+          Top = 493
+          Width = 282
           Anchors = [akLeft, akBottom]
           Caption = 'Mettre une autre recette à la place...'
+          OnClick = EditRecipeButtonClick
           TabOrder = 1
         end
       end
@@ -340,7 +352,7 @@ object PlanningFrame: TPlanningFrame
         Left = 50
         Height = 15
         Top = 258
-        Width = 4
+        Width = 3
         Align = alCustom
         Caption = ' '
         ParentColor = False
@@ -352,7 +364,7 @@ object PlanningFrame: TPlanningFrame
         Left = 50
         Height = 272
         Top = 1
-        Width = 31
+        Width = 24
         Anchors = [akTop, akLeft, akBottom]
         Caption = 'Midi'
         Font.Style = [fsBold]
@@ -367,7 +379,7 @@ object PlanningFrame: TPlanningFrame
         Left = 53
         Height = 271
         Top = 258
-        Width = 28
+        Width = 22
         Anchors = [akTop, akLeft, akBottom]
         Caption = 'Soir'
         Font.Style = [fsBold]
@@ -392,7 +404,7 @@ object PlanningFrame: TPlanningFrame
     left = 776
     top = 440
   end
-  object InfoRecipeDS: TDatasource
+  object InfoRecipeDS: TDataSource
     DataSet = InfoRecipeDbf
     left = 816
     top = 440
@@ -404,7 +416,7 @@ object PlanningFrame: TPlanningFrame
     left = 872
     top = 400
   end
-  object InfoIngrDS: TDatasource
+  object InfoIngrDS: TDataSource
     DataSet = InfoIngrDbf
     left = 912
     top = 400
@@ -416,7 +428,7 @@ object PlanningFrame: TPlanningFrame
     left = 896
     top = 464
   end
-  object InfoCompoDS: TDatasource
+  object InfoCompoDS: TDataSource
     DataSet = InfoCompoDbf
     left = 936
     top = 464

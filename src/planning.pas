@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, dbf, db, FileUtil, Forms, Controls, StdCtrls, ComCtrls,
-  ExtCtrls, Dialogs, DbCtrls, PlanningDay, fgl;
+  ExtCtrls, Dialogs, DbCtrls, DBGrids, PlanningDay, fgl;
 
 type
   TPlanningDayControlsMap2 = specialize TFPGMap<TMealtime, TPlanningDayControl>;
@@ -44,6 +44,7 @@ type
     Label13: TLabel;
     Label14: TLabel;
     Label15: TLabel;
+    Label16: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -58,6 +59,8 @@ type
     ScrollBar1: TScrollBar;
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
+    procedure EditRecipeButtonClick(Sender: TObject);
+    procedure FrameClick(Sender: TObject);
     procedure ScrollPanelResize(Sender: TObject);
     procedure ScrollBar1Change(Sender: TObject);
     procedure ScrollBar1Scroll(Sender: TObject; ScrollCode: TScrollCode;
@@ -86,6 +89,11 @@ type
     //Tableau avec les labels créés pour chaque jours
     LabelList: TLabelList;
 
+    //Plat actuellement sélectionné
+    SelectedDay: TDayOfWeek;
+    SelectedMealtime: TMealtime;
+    SelectedRecipeType: TRecipeType;
+
   public
     { public declarations }
     //Surcharge du constructeur permettant d'initialiser la connexion à la base
@@ -109,6 +117,17 @@ begin
     ScrollBar1.PageSize := ScrollPanel.Width;
 end;
 
+procedure TPlanningFrame.FrameClick(Sender: TObject);
+begin
+
+end;
+
+procedure TPlanningFrame.EditRecipeButtonClick(Sender: TObject);
+begin
+    if(SelectedDay <> dowNone) then
+        InformationPageControl.PageIndex := 0;
+end;
+
 procedure TPlanningFrame.ScrollBar1Scroll(Sender: TObject;
     ScrollCode: TScrollCode; var ScrollPos: Integer);
 begin
@@ -122,6 +141,10 @@ var
   CodeIngr: Integer;
   Item: TListItem;
 begin
+    SelectedDay := Day;
+    SelectedMealtime := Mealtime;
+    SelectedRecipeType := TypeOfRecipe;
+
     //Sélection de la recette dans le base de données
     //Les informations seront automatiquement affichées avec les labels
     InfoRecipeDbf.Locate('CODE', RecipeId, [loCaseInsensitive]);
@@ -256,6 +279,10 @@ var
   Day: TDayOfWeek;
 begin
      inherited Create(AOwner);
+
+     SelectedDay := dowNone;
+     SelectedMealtime := mtNone;
+     SelectedRecipeType := rtNone;
 
      //Chargement des bases de données
      InfoRecipeDbf.FilePathFull := GetCurrentDir();
