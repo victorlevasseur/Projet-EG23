@@ -17,6 +17,7 @@ type
 
   TPlanningFrame = class(TFrame)
       Button1: TButton;
+      EditRecipeButton: TButton;
       InfoCompoDS: TDatasource;
       InfoCompoDbf: TDbf;
       InfoIngrDS: TDatasource;

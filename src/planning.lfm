@@ -272,7 +272,7 @@ object PlanningFrame: TPlanningFrame
         end
         object InfoIngrListBox: TListView
           Left = 8
-          Height = 168
+          Height = 184
           Top = 296
           Width = 290
           Anchors = [akTop, akLeft, akBottom]
@@ -287,6 +287,15 @@ object PlanningFrame: TPlanningFrame
             end>
           TabOrder = 0
           ViewStyle = vsReport
+        end
+        object EditRecipeButton: TButton
+          Left = 8
+          Height = 25
+          Top = 488
+          Width = 290
+          Anchors = [akLeft, akBottom]
+          Caption = 'Mettre une autre recette à la place...'
+          TabOrder = 1
         end
       end
     end
@@ -380,36 +389,36 @@ object PlanningFrame: TPlanningFrame
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
-    left = 792
-    top = 536
+    left = 776
+    top = 440
   end
   object InfoRecipeDS: TDatasource
     DataSet = InfoRecipeDbf
-    left = 824
-    top = 536
+    left = 816
+    top = 440
   end
   object InfoIngrDbf: TDbf
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
     left = 872
-    top = 536
+    top = 400
   end
   object InfoIngrDS: TDatasource
     DataSet = InfoIngrDbf
-    left = 904
-    top = 536
+    left = 912
+    top = 400
   end
   object InfoCompoDbf: TDbf
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
-    left = 952
-    top = 536
+    left = 896
+    top = 464
   end
   object InfoCompoDS: TDatasource
     DataSet = InfoCompoDbf
-    left = 984
-    top = 536
+    left = 936
+    top = 464
   end
 end
