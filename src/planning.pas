@@ -16,6 +16,15 @@ type
   { TPlanningFrame }
 
   TPlanningFrame = class(TFrame)
+      Button1: TButton;
+      DBText1: TDBText;
+      DBText2: TDBText;
+      DBText3: TDBText;
+      DBText4: TDBText;
+      DBText5: TDBText;
+      DBText6: TDBText;
+      DBText7: TDBText;
+      Image1: TImage;
       InfoRecipeDS: TDatasource;
       InfoRecipeNameLabel: TDBText;
       InfoRecipeDbf: TDbf;
@@ -24,16 +33,25 @@ type
     InfoDayMealtimeLabel: TLabel;
     CenterLabel: TLabel;
     Label1: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
     ScrollPanel: TPanel;
     InsideScrollPanel: TPanel;
     ScrollBar1: TScrollBar;
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
-    ToolBar1: TToolBar;
-    GenerateWeekButton: TToolButton;
-    ShoppingListButton: TToolButton;
-    ToolButton2: TToolButton;
     procedure ScrollPanelResize(Sender: TObject);
     procedure ScrollBar1Change(Sender: TObject);
     procedure ScrollBar1Scroll(Sender: TObject; ScrollCode: TScrollCode;
@@ -95,6 +113,7 @@ procedure TPlanningFrame.OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
     TypeOfRecipe: TRecipeType; RecipeId: Integer);
 begin
     //Sélection de la recette dans le base de données
+    //Les informations seront automatiquement affichées avec les labels
     InfoRecipeDbf.Locate('CODE', RecipeId, [loCaseInsensitive]);
 
     //Affichage du jour et du repas dans le panneau d'informations

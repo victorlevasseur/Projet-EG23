@@ -14,6 +14,7 @@ object PlanningDayControl: TPlanningDayControl
   object ListView1: TListView
     Left = 0
     Height = 153
+    Hint = 'Cliquez sur une des recettes pour obtenir des détails dans le panneau affiché à droite du logiciel.'
     Top = 0
     Width = 274
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -27,6 +28,7 @@ object PlanningDayControl: TPlanningDayControl
         Caption = 'Type'
         Width = 103
       end>
+    Font.Height = 16
     Items.LazData = {
       9400000003000000FFFFFFFFFFFFFFFFFFFFFFFF010000000D00000049636920
       6C27656E7472C3A96507000000456E7472C3A965FFFFFFFFFFFFFFFFFFFFFFFF
@@ -34,7 +36,10 @@ object PlanningDayControl: TPlanningDayControl
       FFFFFFFFFFFFFF010000000E000000496369206C652064657373657274070000
       0044657373657274FFFFFFFFFFFFFFFFFFFFFFFF
     }
+    ParentFont = False
+    ParentShowHint = False
     RowSelect = True
+    ShowHint = True
     TabOrder = 0
     ViewStyle = vsReport
     OnSelectItem = ListView1SelectItem

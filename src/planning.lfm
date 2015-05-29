@@ -8,42 +8,16 @@ object PlanningFrame: TPlanningFrame
   TabOrder = 0
   DesignLeft = 328
   DesignTop = 164
-  object ToolBar1: TToolBar
-    Left = 0
-    Height = 26
-    Top = 0
-    Width = 1029
-    Caption = 'ToolBar1'
-    ShowCaptions = True
-    TabOrder = 0
-    object GenerateWeekButton: TToolButton
-      Left = 1
-      Top = 2
-      Caption = 'Générer le planning de la semaine'
-    end
-    object ToolButton2: TToolButton
-      Left = 228
-      Top = 2
-      Width = 5
-      Caption = 'ToolButton2'
-      Style = tbsDivider
-    end
-    object ShoppingListButton: TToolButton
-      Left = 233
-      Top = 2
-      Caption = 'Liste de courses'
-    end
-  end
   object InformationGroupBox: TGroupBox
-    Left = 770
+    Left = 776
     Height = 559
     Top = 32
-    Width = 259
+    Width = 253
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Information'
     ClientHeight = 528
-    ClientWidth = 255
-    TabOrder = 1
+    ClientWidth = 249
+    TabOrder = 0
     object InformationPageControl: TPageControl
       Left = 4
       Height = 528
@@ -65,7 +39,6 @@ object PlanningFrame: TPlanningFrame
           Height = 15
           Top = 24
           Width = 232
-          Alignment = taCenter
           AutoSize = False
           DataField = 'INTITULE'
           DataSource = InfoRecipeDS
@@ -80,11 +53,218 @@ object PlanningFrame: TPlanningFrame
           Height = 15
           Top = 0
           Width = 232
-          Alignment = taCenter
           AutoSize = False
           Caption = 'InfoDayMealtimeLabel'
           Font.Height = -13
           Font.Name = 'Sans'
+          Font.Style = [fsItalic]
+          ParentColor = False
+          ParentFont = False
+        end
+        object DBText1: TDBText
+          Left = 80
+          Height = 74
+          Top = 48
+          Width = 160
+          AutoSize = False
+          DataField = 'DESCRIPTIF'
+          DataSource = InfoRecipeDS
+          ParentColor = False
+          WordWrap = True
+        end
+        object Image1: TImage
+          Left = 8
+          Height = 74
+          Top = 48
+          Width = 58
+        end
+        object Label3: TLabel
+          Left = 8
+          Height = 15
+          Top = 136
+          Width = 39
+          Caption = 'Pour '
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object DBText2: TDBText
+          Left = 50
+          Height = 15
+          Top = 136
+          Width = 59
+          DataField = 'NBR_PERSO'
+          DataSource = InfoRecipeDS
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label4: TLabel
+          AnchorSideLeft.Control = DBText2
+          AnchorSideLeft.Side = asrBottom
+          Left = 115
+          Height = 15
+          Top = 136
+          Width = 89
+          BorderSpacing.Left = 6
+          Caption = 'personne(s)'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label5: TLabel
+          Left = 8
+          Height = 15
+          Top = 160
+          Width = 67
+          Caption = 'Difficulté : '
+          ParentColor = False
+        end
+        object DBText3: TDBText
+          Left = 80
+          Height = 15
+          Top = 160
+          Width = 52
+          DataField = 'DIFFICULTE'
+          DataSource = InfoRecipeDS
+          ParentColor = False
+        end
+        object Label6: TLabel
+          AnchorSideLeft.Control = DBText3
+          AnchorSideLeft.Side = asrBottom
+          Left = 138
+          Height = 15
+          Top = 160
+          Width = 24
+          BorderSpacing.Left = 6
+          Caption = '/ 10'
+          ParentColor = False
+        end
+        object Label7: TLabel
+          Left = 8
+          Height = 15
+          Top = 184
+          Width = 114
+          Caption = 'Temps de prépa. :'
+          ParentColor = False
+        end
+        object DBText4: TDBText
+          Left = 128
+          Height = 15
+          Top = 184
+          Width = 52
+          DataField = 'PREPARATIO'
+          DataSource = InfoRecipeDS
+          ParentColor = False
+        end
+        object Label8: TLabel
+          AnchorSideLeft.Control = DBText4
+          AnchorSideLeft.Side = asrBottom
+          Left = 186
+          Height = 15
+          Top = 184
+          Width = 24
+          BorderSpacing.Left = 6
+          Caption = 'min'
+          ParentColor = False
+        end
+        object Label9: TLabel
+          AnchorSideRight.Side = asrBottom
+          Left = 8
+          Height = 15
+          Top = 208
+          Width = 121
+          Caption = 'Temps de cuisson :'
+          ParentColor = False
+        end
+        object DBText5: TDBText
+          AnchorSideLeft.Side = asrBottom
+          AnchorSideRight.Side = asrBottom
+          Left = 138
+          Height = 15
+          Top = 208
+          Width = 52
+          DataField = 'TPS_CUISSO'
+          DataSource = InfoRecipeDS
+          ParentColor = False
+        end
+        object Label10: TLabel
+          AnchorSideLeft.Control = DBText5
+          AnchorSideLeft.Side = asrBottom
+          Left = 196
+          Height = 15
+          Top = 208
+          Width = 24
+          BorderSpacing.Left = 6
+          Caption = 'min'
+          ParentColor = False
+        end
+        object Label11: TLabel
+          Left = 8
+          Height = 15
+          Top = 232
+          Width = 59
+          Caption = 'Calories :'
+          ParentColor = False
+        end
+        object DBText6: TDBText
+          Left = 74
+          Height = 15
+          Top = 232
+          Width = 52
+          DataField = 'CALORIE'
+          DataSource = InfoRecipeDS
+          ParentColor = False
+        end
+        object Label12: TLabel
+          AnchorSideLeft.Control = DBText6
+          AnchorSideLeft.Side = asrBottom
+          Left = 132
+          Height = 15
+          Top = 232
+          Width = 27
+          BorderSpacing.Left = 6
+          Caption = 'kCal'
+          ParentColor = False
+        end
+        object Label13: TLabel
+          Left = 8
+          Height = 15
+          Top = 256
+          Width = 156
+          Caption = 'Coût (approximatif) :'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object DBText7: TDBText
+          Left = 170
+          Height = 15
+          Top = 256
+          Width = 59
+          DataField = 'COUT'
+          DataSource = InfoRecipeDS
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label14: TLabel
+          AnchorSideLeft.Control = DBText7
+          AnchorSideLeft.Side = asrBottom
+          Left = 235
+          Height = 15
+          Top = 256
+          Width = 8
+          BorderSpacing.Left = 6
+          Caption = '€'
+          ParentColor = False
+        end
+        object Label15: TLabel
+          Left = 8
+          Height = 15
+          Top = 280
+          Width = 194
+          Caption = 'Ingrédients de la recette :'
           Font.Style = [fsBold]
           ParentColor = False
           ParentFont = False
@@ -101,7 +281,7 @@ object PlanningFrame: TPlanningFrame
     Max = 2365
     PageSize = 100
     SmallChange = 50
-    TabOrder = 2
+    TabOrder = 1
     OnChange = ScrollBar1Change
     OnScroll = ScrollBar1Scroll
   end
@@ -114,7 +294,7 @@ object PlanningFrame: TPlanningFrame
     Caption = 'ScrollPanel'
     ClientHeight = 530
     ClientWidth = 768
-    TabOrder = 3
+    TabOrder = 2
     OnResize = ScrollPanelResize
     object InsideScrollPanel: TPanel
       Left = 1
@@ -168,6 +348,14 @@ object PlanningFrame: TPlanningFrame
         ParentFont = False
       end
     end
+  end
+  object Button1: TButton
+    Left = 0
+    Height = 25
+    Top = 6
+    Width = 216
+    Caption = 'Générer un planning aléatoire'
+    TabOrder = 3
   end
   object InfoRecipeDbf: TDbf
     IndexDefs = <>
