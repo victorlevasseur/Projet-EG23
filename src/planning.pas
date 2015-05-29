@@ -17,6 +17,10 @@ type
 
   TPlanningFrame = class(TFrame)
       Button1: TButton;
+      InfoCompoDS: TDatasource;
+      InfoCompoDbf: TDbf;
+      InfoIngrDS: TDatasource;
+      InfoIngrDbf: TDbf;
       DBText1: TDBText;
       DBText2: TDBText;
       DBText3: TDBText;
@@ -47,6 +51,7 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    InfoIngrListBox: TListView;
     ScrollPanel: TPanel;
     InsideScrollPanel: TPanel;
     ScrollBar1: TScrollBar;
@@ -111,6 +116,10 @@ end;
 
 procedure TPlanningFrame.OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
     TypeOfRecipe: TRecipeType; RecipeId: Integer);
+var
+  i: Integer;
+  CodeIngr: Integer;
+  Item: TListItem;
 begin
     //Sélection de la recette dans le base de données
     //Les informations seront automatiquement affichées avec les labels
@@ -132,6 +141,28 @@ begin
         mtLunch: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Midi';
         mtDinner: InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + ' Soir';
     else InfoDayMealtimeLabel.Caption := InfoDayMealtimeLabel.Caption + '';
+    end;
+
+    //On utilise la table des compositions pour trouver les ID des ingrédients
+    //de la recette sélectionnée
+    InfoCompoDbf.Filter:='CODE_RECET=' + IntToStr(RecipeId);
+    InfoCompoDbf.Filtered:=True;
+    InfoCompoDbf.First;
+
+    //On boucle sur tous les ingrédients associés à la recette
+    InfoIngrListBox.Clear;
+    while not InfoCompoDbf.EOF do
+    begin
+        CodeIngr := InfoCompoDbf.FieldByName('CODE_INGRE').AsInteger;
+
+        InfoIngrDbf.Filter := 'CODE=' + IntToStr(CodeIngr);
+        InfoIngrDbf.Filtered := True;
+
+        Item := InfoIngrListBox.Items.Add;
+        Item.Caption := InfoIngrDbf.FieldByName('INTITULE').AsString;
+        Item.SubItems.Add(InfoCompoDbf.FieldByName('QTE').AsString + ' ' + InfoIngrDbf.FieldByName('UNITE').AsString);
+
+        InfoCompoDbf.Next;
     end;
 end;
 
@@ -225,11 +256,21 @@ var
 begin
      inherited Create(AOwner);
 
-     //Chargement de(s) base(s) de données
+     //Chargement des bases de données
      InfoRecipeDbf.FilePathFull := GetCurrentDir();
      InfoRecipeDbf.TableLevel := 4;
      InfoRecipeDbf.TableName :='RECETTES.DBF';
      InfoRecipeDbf.Open;
+
+     InfoIngrDbf.FilePathFull := GetCurrentDir();
+     InfoIngrDbf.TableLevel := 4;
+     InfoIngrDbf.TableName :='INGREDIE.DBF';
+     InfoIngrDbf.Open;
+
+     InfoCompoDbf.FilePathFull := GetCurrentDir();
+     InfoCompoDbf.TableLevel := 4;
+     InfoCompoDbf.TableName :='COMPOSIT.DBF';
+     InfoCompoDbf.Open;
 
      //Création dynamique des TPlanningDayControls
      PlanningDayControls := TPlanningDayControlsMap.Create;

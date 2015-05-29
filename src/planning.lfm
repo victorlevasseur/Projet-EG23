@@ -9,21 +9,22 @@ object PlanningFrame: TPlanningFrame
   DesignLeft = 328
   DesignTop = 164
   object InformationGroupBox: TGroupBox
-    Left = 776
+    Left = 712
     Height = 559
     Top = 32
-    Width = 253
+    Width = 317
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Information'
     ClientHeight = 528
-    ClientWidth = 249
+    ClientWidth = 313
     TabOrder = 0
     object InformationPageControl: TPageControl
       Left = 4
       Height = 528
       Top = 3
-      Width = 248
+      Width = 304
       ActivePage = EditTabSheet
+      Anchors = [akTop, akLeft, akBottom]
       ShowTabs = False
       TabIndex = 1
       TabOrder = 0
@@ -33,12 +34,12 @@ object PlanningFrame: TPlanningFrame
       object EditTabSheet: TTabSheet
         Caption = 'EditTabSheet'
         ClientHeight = 528
-        ClientWidth = 248
+        ClientWidth = 304
         object InfoRecipeNameLabel: TDBText
           Left = 8
           Height = 15
           Top = 24
-          Width = 232
+          Width = 294
           AutoSize = False
           DataField = 'INTITULE'
           DataSource = InfoRecipeDS
@@ -52,7 +53,7 @@ object PlanningFrame: TPlanningFrame
           Left = 8
           Height = 15
           Top = 0
-          Width = 232
+          Width = 290
           AutoSize = False
           Caption = 'InfoDayMealtimeLabel'
           Font.Height = -13
@@ -65,7 +66,7 @@ object PlanningFrame: TPlanningFrame
           Left = 80
           Height = 74
           Top = 48
-          Width = 160
+          Width = 218
           AutoSize = False
           DataField = 'DESCRIPTIF'
           DataSource = InfoRecipeDS
@@ -269,6 +270,24 @@ object PlanningFrame: TPlanningFrame
           ParentColor = False
           ParentFont = False
         end
+        object InfoIngrListBox: TListView
+          Left = 8
+          Height = 168
+          Top = 296
+          Width = 290
+          Anchors = [akTop, akLeft, akBottom]
+          Columns = <          
+            item
+              Caption = 'Ingrédient'
+              Width = 150
+            end          
+            item
+              Caption = 'Quantité'
+              Width = 119
+            end>
+          TabOrder = 0
+          ViewStyle = vsReport
+        end
       end
     end
   end
@@ -276,7 +295,7 @@ object PlanningFrame: TPlanningFrame
     Left = 0
     Height = 16
     Top = 568
-    Width = 761
+    Width = 705
     Anchors = [akLeft, akRight, akBottom]
     Max = 2365
     PageSize = 100
@@ -289,22 +308,22 @@ object PlanningFrame: TPlanningFrame
     Left = 0
     Height = 530
     Top = 32
-    Width = 768
+    Width = 704
     Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = 'ScrollPanel'
     ClientHeight = 530
-    ClientWidth = 768
+    ClientWidth = 704
     TabOrder = 2
     OnResize = ScrollPanelResize
     object InsideScrollPanel: TPanel
       Left = 1
       Height = 530
       Top = 0
-      Width = 2365
+      Width = 2301
       Anchors = [akTop, akLeft, akRight, akBottom]
       Caption = 'InsideScrollPanel'
       ClientHeight = 530
-      ClientWidth = 2365
+      ClientWidth = 2301
       TabOrder = 0
       object CenterLabel: TLabel
         AnchorSideTop.Control = InsideScrollPanel
@@ -321,7 +340,7 @@ object PlanningFrame: TPlanningFrame
         AnchorSideTop.Control = InsideScrollPanel
         AnchorSideBottom.Control = CenterLabel
         AnchorSideBottom.Side = asrBottom
-        Left = 47
+        Left = 50
         Height = 272
         Top = 1
         Width = 31
@@ -361,12 +380,36 @@ object PlanningFrame: TPlanningFrame
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
-    left = 856
+    left = 792
     top = 536
   end
   object InfoRecipeDS: TDatasource
     DataSet = InfoRecipeDbf
-    left = 976
+    left = 824
+    top = 536
+  end
+  object InfoIngrDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 872
+    top = 536
+  end
+  object InfoIngrDS: TDatasource
+    DataSet = InfoIngrDbf
+    left = 904
+    top = 536
+  end
+  object InfoCompoDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 952
+    top = 536
+  end
+  object InfoCompoDS: TDatasource
+    DataSet = InfoCompoDbf
+    left = 984
     top = 536
   end
 end
