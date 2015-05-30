@@ -214,8 +214,7 @@ var
   Item: TListItem;
 begin
     if IsInEditMode and ((SelectedDay <> Day) or (SelectedMealtime <> Mealtime) or
-        (SelectedRecipeType <> TypeOfRecipe))
-        {TODO : Ajouter le demande de confirmation à l'utilisateur}  then
+        (SelectedRecipeType <> TypeOfRecipe)) then
     begin
         //On est en mode édition, on demande à l'utilisateur s'il est sûr
         //de vouloir bouger la sélection pendant qu'il édite un plat
@@ -225,9 +224,21 @@ begin
 
         //On remet la sélection (des listes de repas des jours) à son état
         //initial
+        OnDishSelected(SelectedDay, SelectedMealtime, SelectedRecipeType,
+            SelectedRecipeId);
     end
     else
     begin
+        //Si on était en mode de changement de recette et que l'utilisation
+        //vient de changer de sélection dans le planning, on repasse le panneau
+        //en mode information
+        if IsInEditMode and ((SelectedDay <> Day) or
+            (SelectedMealtime <> Mealtime) or
+            (SelectedRecipeType <> TypeOfRecipe)) then
+        begin
+            EditCancelButtonClick(TObject.create);
+        end;
+
         SelectedDay := Day;
         SelectedMealtime := Mealtime;
         SelectedRecipeType := TypeOfRecipe;
