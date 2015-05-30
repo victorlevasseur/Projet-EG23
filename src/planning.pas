@@ -148,7 +148,7 @@ begin
             InfoRecipeDbf.Filter := 'TYPE=' + QuotedStr('Entr,e') + ''
         else if SelectedRecipeType = rtMeal then
             InfoRecipeDbf.Filter := 'TYPE=' + QuotedStr('Plats') + ''
-        else if SelectedRecipeType = rtMeal then
+        else if SelectedRecipeType = rtDessert then
             InfoRecipeDbf.Filter := 'TYPE=' + QuotedStr('Dessert') + '';
 
         InfoRecipeDbf.Filtered := True;
