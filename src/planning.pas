@@ -17,6 +17,7 @@ type
 
   TPlanningFrame = class(TFrame)
       Button1: TButton;
+      ShoppingListButton: TButton;
       EditOkButton: TButton;
       EditCancelButton: TButton;
       DBGrid1: TDBGrid;
@@ -139,7 +140,18 @@ begin
     if(SelectedDay <> dowNone) then
     begin
         IsInEditMode := True;
+
         InformationPageControl.PageIndex := 0;
+
+        //On filtre le type de recette
+        if SelectedRecipeType = rtStarter then
+            InfoRecipeDbf.Filter := 'TYPE=' + QuotedStr('Entr,e') + ''
+        else if SelectedRecipeType = rtMeal then
+            InfoRecipeDbf.Filter := 'TYPE=' + QuotedStr('Plats') + ''
+        else if SelectedRecipeType = rtMeal then
+            InfoRecipeDbf.Filter := 'TYPE=' + QuotedStr('Dessert') + '';
+
+        InfoRecipeDbf.Filtered := True;
     end;
 end;
 
@@ -148,6 +160,8 @@ begin
     InformationPageControl.PageIndex := 1;
 
     IsInEditMode := False;
+
+    InfoRecipeDbf.Filtered := False;
 
     //On réinitialise l'affichage pour être sûr de bien pointer le bon plat
     //dans le InfoRecipeDbf (on simule un clic sur le plat déjà sélectionné
@@ -161,6 +175,8 @@ begin
     InformationPageControl.PageIndex := 1;
 
     IsInEditMode := False;
+
+    InfoRecipeDbf.Filtered := False;
 
     //On affecte le nouveau repas à celui qui a été modifié
     if SelectedRecipeType = rtStarter then
