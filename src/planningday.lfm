@@ -38,11 +38,13 @@ object PlanningDayControl: TPlanningDayControl
     }
     ParentFont = False
     ParentShowHint = False
+    ReadOnly = True
     RowSelect = True
     ShowHint = True
     TabOrder = 0
     ViewStyle = vsReport
     OnClick = ListView1Click
+    OnDblClick = ListView1Click
     OnSelectItem = ListView1SelectItem
   end
   object CaloriesLabel: TLabel

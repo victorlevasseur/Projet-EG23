@@ -84,6 +84,10 @@ type
     //Crée les labels affichant les jours
     procedure AddDayLabels();
 
+    //Méthode qui enlève les sélections de tous les PlanningDayControls excepté
+    //celui qui vient de l'être
+    procedure ExclusiveSelectionUpdate();
+
   private
     { Un tableau associatif pour associer un repas (jour + midi/soir) et un
       contrôle PlanningDayControl }
@@ -257,6 +261,7 @@ begin
             InfoCompoDbf.Next;
         end;
     end;
+    //ExclusiveSelectionUpdate();
 end;
 
 procedure TPlanningFrame.CreatePlanningDayControl(
@@ -339,6 +344,32 @@ begin
             dowSaturday: LabelList[Integer(Day) - 1].Caption := 'Samedi';
             dowSunday: LabelList[Integer(Day) - 1].Caption := 'Dimanche';
         else LabelList[Integer(Day) - 1].Caption := '';
+        end;
+    end;
+end;
+
+procedure TPlanningFrame.ExclusiveSelectionUpdate();
+var
+  Day: TDayOfWeek;
+  Mealtime: TMealtime;
+begin
+    //On parcourt tous les PlanningDayControls
+    for Day := dowMonday to dowSunday do
+    begin
+        for Mealtime := mtLunch to mtDinner do
+        begin
+            //Si ce n'est pas le dernier sélectionné, on désactive la sélection
+            if (SelectedDay <> Day) and (SelectedMealtime <> Mealtime) then
+            begin
+                PlanningDayControls[Day][Mealtime].SelectDish(rtNone);
+            end
+            //Sinon, on l'active sur le plat sélectionné
+            else
+            begin
+                PlanningDayControls[Day][Mealtime].SetFocus;
+                PlanningDayControls[Day][Mealtime].SelectDish(
+                    SelectedRecipeType);
+            end;
         end;
     end;
 end;

@@ -52,6 +52,9 @@ type
     MealId: Integer;
     DessertId: Integer;
 
+    //Dernier plat sélectionné
+    LastSelectedDish: TRecipeType;
+
   public
     { public declarations }
 
@@ -105,7 +108,7 @@ var
 begin
      //Prendre en compte uniquement les événements de sélection (et pas de
      //déselection) et juste si l'event handler OnDishSelected est "lié"
-     if Selected and Assigned(OnDishSelected) then
+     if Selected and Assigned(OnDishSelected) and (ListView1.Selected <> nil) then
      begin
           if Item.Index = 0 then
               begin
@@ -123,13 +126,44 @@ begin
                    RecipeId := DessertId;
               end;
 
+          LastSelectedDish := DishType;
+
           OnDishSelected(Day, Mealtime, DishType, RecipeId);
      end;
 end;
 
 procedure TPlanningDayControl.ListView1Click(Sender: TObject);
+var
+   DishType: TRecipeType;
+   RecipeId: Integer;
 begin
+    //Prendre en compte uniquement les événements de sélection (et pas de
+     //déselection) et juste si l'event handler OnDishSelected est "lié"
+     if Assigned(OnDishSelected) and (ListView1.Selected <> nil) then
+     begin
+          if ListView1.Selected.Index = 0 then
+              begin
+                   DishType := rtStarter;
+                   RecipeId := StarterId;
+              end
+          else if ListView1.Selected.Index = 1 then
+              begin
+                   DishType := rtMeal;
+                   RecipeId := MealId;
+              end
+          else if ListView1.Selected.Index = 2 then
+              begin
+                   DishType := rtDessert;
+                   RecipeId := DessertId;
+              end;
 
+          OnDishSelected(Day, Mealtime, DishType, RecipeId);
+     end;
+
+     if (ListView1.Selected = nil) and (LastSelectedDish <> rtNone) then
+     begin
+         ListView1.Selected := ListView1.Items[Integer(LastSelectedDish) - 1];
+     end;
 end;
 
 function TPlanningDayControl.GetRecipeName(Id: Integer) : string;
@@ -187,6 +221,8 @@ begin
      StarterId := -1;
      MealId := -1;
      DessertId := -1;
+
+     LastSelectedDish := rtNone;
 
      Day := dowNone;
      Mealtime := mtNone;
