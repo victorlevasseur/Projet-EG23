@@ -13,9 +13,13 @@ object ShoppingListDialog: TShoppingListDialog
     Top = 40
     Width = 449
     Anchors = [akTop, akLeft, akRight, akBottom]
+    Font.Height = -19
     Lines.Strings = (
       'Memo'
     )
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssVertical
     TabOrder = 0
   end
   object CloseButton: TButton
@@ -34,6 +38,7 @@ object ShoppingListDialog: TShoppingListDialog
     Top = 8
     Width = 176
     Caption = 'Enregistrer dans un fichier...'
+    OnClick = SaveButtonClick
     TabOrder = 2
   end
   object PrintButton: TButton
@@ -42,6 +47,7 @@ object ShoppingListDialog: TShoppingListDialog
     Top = 8
     Width = 184
     Caption = 'Imprimer la liste...'
+    OnClick = PrintButtonClick
     TabOrder = 3
   end
   object CompoDbf: TDbf

@@ -25,6 +25,8 @@ type
     Memo: TMemo;
     procedure CloseButtonClick(Sender: TObject);
     procedure CompoDbfAfterOpen(DataSet: TDataSet);
+    procedure PrintButtonClick(Sender: TObject);
+    procedure SaveButtonClick(Sender: TObject);
   private
     { private declarations }
     RecipesList: TRecipeList;
@@ -104,11 +106,21 @@ begin
             IngrDbf.Locate('CODE', IngrList.Keys[i], [loCaseInsensitive]);
 
             //Affichage de l'ingrédient
-            Memo.Lines.Add('* ' + IngrDbf.FieldByName('INTITULE').AsString
+            Memo.Lines.Add(' - ' + IngrDbf.FieldByName('INTITULE').AsString
                 + ' : ' + IntToStr(IngrList[CodeIngr]) + ' ' +
                 IngrDbf.FieldByName('UNITE').AsString);
         end;
     end;
+end;
+
+procedure TShoppingListDialog.PrintButtonClick(Sender: TObject);
+begin
+    ShowMessage('Fonctionnalité non implémentée');
+end;
+
+procedure TShoppingListDialog.SaveButtonClick(Sender: TObject);
+begin
+    ShowMessage('Fonctionnalité non implémentée');
 end;
 
 procedure TShoppingListDialog.SetRecipeList(RecipeList: TRecipeList);

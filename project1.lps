@@ -32,12 +32,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="Planning"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="272"/>
-        <CursorPos X="46" Y="292"/>
+        <TopLine Value="128"/>
+        <CursorPos X="37" Y="142"/>
         <UsageCount Value="52"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="src/planningday.pas"/>
@@ -190,11 +192,10 @@
         <ComponentName Value="ShoppingListDialog"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ShoppingList"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="85"/>
-        <CursorPos X="73" Y="106"/>
+        <TopLine Value="103"/>
+        <CursorPos X="14" Y="117"/>
         <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -214,123 +215,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="167" Column="82" TopLine="151"/>
+        <Caret Line="133" Column="107" TopLine="112"/>
       </Position1>
       <Position2>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="122" Column="38" TopLine="107"/>
+        <Caret Line="160" Column="37" TopLine="122"/>
       </Position2>
       <Position3>
-        <Filename Value="src/planning.pas"/>
-        <Caret Line="133" Column="107" TopLine="112"/>
+        <Filename Value="src/shoppinglist.pas"/>
+        <Caret Line="16" Column="36" TopLine="1"/>
       </Position3>
       <Position4>
-        <Filename Value="src/planning.pas"/>
-        <Caret Line="160" Column="37" TopLine="122"/>
+        <Filename Value="src/shoppinglist.pas"/>
+        <Caret Line="20" Column="36" TopLine="1"/>
       </Position4>
       <Position5>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="16" Column="36" TopLine="1"/>
+        <Caret Line="21" Column="36" TopLine="1"/>
       </Position5>
       <Position6>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="20" Column="36" TopLine="1"/>
+        <Caret Line="22" Column="36" TopLine="1"/>
       </Position6>
       <Position7>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="21" Column="36" TopLine="1"/>
+        <Caret Line="24" Column="36" TopLine="1"/>
       </Position7>
       <Position8>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="22" Column="36" TopLine="1"/>
+        <Caret Line="26" Column="36" TopLine="7"/>
       </Position8>
       <Position9>
-        <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="24" Column="36" TopLine="1"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="240" Column="84" TopLine="215"/>
       </Position9>
       <Position10>
-        <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="26" Column="36" TopLine="7"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="9" Column="51" TopLine="1"/>
       </Position10>
       <Position11>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="240" Column="84" TopLine="215"/>
+        <Caret Line="213" Column="27" TopLine="193"/>
       </Position11>
       <Position12>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="9" Column="51" TopLine="1"/>
+        <Caret Line="218" Column="38" TopLine="199"/>
       </Position12>
       <Position13>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="213" Column="27" TopLine="193"/>
+        <Caret Line="213" Column="26" TopLine="192"/>
       </Position13>
       <Position14>
-        <Filename Value="src/planning.pas"/>
-        <Caret Line="218" Column="38" TopLine="199"/>
+        <Filename Value="src/shoppinglist.pas"/>
+        <Caret Line="15" Column="3" TopLine="11"/>
       </Position14>
       <Position15>
         <Filename Value="src/planning.pas"/>
-        <Caret Line="213" Column="26" TopLine="192"/>
+        <Caret Line="238" Column="57" TopLine="200"/>
       </Position15>
       <Position16>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="15" Column="3" TopLine="11"/>
+        <Caret Line="9" Column="25" TopLine="1"/>
       </Position16>
       <Position17>
-        <Filename Value="src/planning.pas"/>
-        <Caret Line="238" Column="57" TopLine="200"/>
+        <Filename Value="src/shoppinglist.pas"/>
+        <Caret Line="69" Column="19" TopLine="31"/>
       </Position17>
       <Position18>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="9" Column="25" TopLine="1"/>
+        <Caret Line="71" Column="17" TopLine="31"/>
       </Position18>
       <Position19>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="69" Column="19" TopLine="31"/>
+        <Caret Line="75" Column="19" TopLine="33"/>
       </Position19>
       <Position20>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="71" Column="17" TopLine="31"/>
+        <Caret Line="73" Column="24" TopLine="53"/>
       </Position20>
       <Position21>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="75" Column="19" TopLine="33"/>
+        <Caret Line="63" Column="22" TopLine="41"/>
       </Position21>
       <Position22>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="73" Column="24" TopLine="53"/>
+        <Caret Line="9" Column="38" TopLine="1"/>
       </Position22>
       <Position23>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="63" Column="22" TopLine="41"/>
+        <Caret Line="106" Column="27" TopLine="71"/>
       </Position23>
       <Position24>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="9" Column="38" TopLine="1"/>
+        <Caret Line="87" Column="55" TopLine="55"/>
       </Position24>
       <Position25>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="106" Column="27" TopLine="71"/>
+        <Caret Line="91" Column="68" TopLine="71"/>
       </Position25>
       <Position26>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="87" Column="55" TopLine="55"/>
+        <Caret Line="110" Column="53" TopLine="79"/>
       </Position26>
       <Position27>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="91" Column="68" TopLine="71"/>
+        <Caret Line="93" Column="37" TopLine="73"/>
       </Position27>
       <Position28>
-        <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="110" Column="53" TopLine="79"/>
+        <Filename Value="src/planning.pas"/>
+        <Caret Line="325" Column="67" TopLine="314"/>
       </Position28>
       <Position29>
         <Filename Value="src/shoppinglist.pas"/>
-        <Caret Line="93" Column="37" TopLine="73"/>
+        <Caret Line="108" Column="31" TopLine="92"/>
       </Position29>
       <Position30>
-        <Filename Value="src/planning.pas"/>
-        <Caret Line="325" Column="67" TopLine="314"/>
+        <Filename Value="src/shoppinglist.pas"/>
+        <Caret Line="118" Column="54" TopLine="98"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

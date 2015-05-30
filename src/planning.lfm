@@ -431,7 +431,7 @@ object PlanningFrame: TPlanningFrame
   object ShoppingListButton: TButton
     Left = 232
     Height = 25
-    Top = 8
+    Top = 6
     Width = 235
     Caption = 'Liste de courses....'
     OnClick = ShoppingListButtonClick
