@@ -124,7 +124,7 @@ end;
 
 procedure TPlanningFrame.ScrollPanelResize(Sender: TObject);
 begin
-    ScrollBar1.Max := 2365 - ScrollPanel.Width;
+    ScrollBar1.Max := 2365{ - ScrollPanel.Width};
     ScrollBar1.PageSize := ScrollPanel.Width;
 end;
 

@@ -16,9 +16,10 @@ object PlanningDayControl: TPlanningDayControl
     Height = 153
     Hint = 'Cliquez sur une des recettes pour obtenir des détails dans le panneau affiché à droite du logiciel.'
     Top = 0
-    Width = 274
+    Width = 272
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSort = False
+    AutoWidthLastColumn = True
     Columns = <    
       item
         Caption = 'Nom'
@@ -26,9 +27,9 @@ object PlanningDayControl: TPlanningDayControl
       end    
       item
         Caption = 'Type'
-        Width = 103
+        Width = 98
       end>
-    Font.Height = 16
+    Font.Height = 20
     Items.LazData = {
       9400000003000000FFFFFFFFFFFFFFFFFFFFFFFF010000000D00000049636920
       6C27656E7472C3A96507000000456E7472C3A965FFFFFFFFFFFFFFFFFFFFFFFF
