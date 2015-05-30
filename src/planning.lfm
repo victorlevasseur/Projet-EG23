@@ -16,23 +16,23 @@ object PlanningFrame: TPlanningFrame
     Width = 317
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Information'
-    ClientHeight = 528
+    ClientHeight = 541
     ClientWidth = 313
     TabOrder = 0
     object InformationPageControl: TPageControl
       Left = 4
-      Height = 528
+      Height = 541
       Top = 3
       Width = 304
-      ActivePage = InformationTabSheet
+      ActivePage = EditTabSheet
       Anchors = [akTop, akLeft, akBottom]
       ShowTabs = False
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 0
       object InformationTabSheet: TTabSheet
         Caption = 'InformationTabSheet'
-        ClientHeight = 528
-        ClientWidth = 304
+        ClientHeight = 533
+        ClientWidth = 296
         object Label16: TLabel
           Left = 11
           Height = 40
@@ -44,10 +44,10 @@ object PlanningFrame: TPlanningFrame
           WordWrap = True
         end
         object DBGrid1: TDBGrid
-          Left = 10
+          Left = -1
           Height = 432
           Top = 56
-          Width = 289
+          Width = 297
           Anchors = [akTop, akLeft, akBottom]
           Color = clWindow
           Columns = <          
@@ -59,7 +59,7 @@ object PlanningFrame: TPlanningFrame
             item
               Title.Caption = 'Nbr Pers'
               FieldName = 'NBR_PERSO'
-              DisplayFormat = '# pers'
+              DisplayFormat = '# personne(s)'
             end          
             item
               Title.Caption = 'Diff'
@@ -78,7 +78,7 @@ object PlanningFrame: TPlanningFrame
         object EditCancelButton: TButton
           Left = 152
           Height = 25
-          Top = 496
+          Top = 501
           Width = 147
           Anchors = [akLeft, akBottom]
           Caption = 'Annuler'
@@ -88,17 +88,18 @@ object PlanningFrame: TPlanningFrame
         object EditOkButton: TButton
           Left = 11
           Height = 25
-          Top = 496
+          Top = 501
           Width = 139
           Anchors = [akLeft, akBottom]
           Caption = 'Ok'
+          OnClick = EditOkButtonClick
           TabOrder = 2
         end
       end
       object EditTabSheet: TTabSheet
         Caption = 'EditTabSheet'
-        ClientHeight = 528
-        ClientWidth = 304
+        ClientHeight = 533
+        ClientWidth = 296
         object InfoRecipeNameLabel: TDBText
           Left = 8
           Height = 15
@@ -164,19 +165,6 @@ object PlanningFrame: TPlanningFrame
           ParentColor = False
           ParentFont = False
         end
-        object Label4: TLabel
-          AnchorSideLeft.Control = DBText2
-          AnchorSideLeft.Side = asrBottom
-          Left = 106
-          Height = 15
-          Top = 136
-          Width = 65
-          BorderSpacing.Left = 6
-          Caption = 'personne(s)'
-          Font.Style = [fsBold]
-          ParentColor = False
-          ParentFont = False
-        end
         object Label5: TLabel
           Left = 8
           Height = 15
@@ -192,17 +180,6 @@ object PlanningFrame: TPlanningFrame
           Width = 43
           DataField = 'DIFFICULTE'
           DataSource = InfoRecipeDS
-          ParentColor = False
-        end
-        object Label6: TLabel
-          AnchorSideLeft.Control = DBText3
-          AnchorSideLeft.Side = asrBottom
-          Left = 129
-          Height = 15
-          Top = 160
-          Width = 20
-          BorderSpacing.Left = 6
-          Caption = '/ 10'
           ParentColor = False
         end
         object Label7: TLabel
@@ -336,7 +313,7 @@ object PlanningFrame: TPlanningFrame
         end
         object InfoIngrListBox: TListView
           Left = 8
-          Height = 189
+          Height = 194
           Top = 296
           Width = 282
           Anchors = [akTop, akLeft, akBottom]
@@ -355,7 +332,7 @@ object PlanningFrame: TPlanningFrame
         object EditRecipeButton: TButton
           Left = 8
           Height = 25
-          Top = 493
+          Top = 498
           Width = 282
           Anchors = [akLeft, akBottom]
           Caption = 'Mettre une autre recette à la place...'
@@ -405,7 +382,7 @@ object PlanningFrame: TPlanningFrame
         Left = 50
         Height = 15
         Top = 258
-        Width = 4
+        Width = 3
         Align = alCustom
         Caption = ' '
         ParentColor = False
@@ -417,7 +394,7 @@ object PlanningFrame: TPlanningFrame
         Left = 50
         Height = 272
         Top = 1
-        Width = 31
+        Width = 24
         Anchors = [akTop, akLeft, akBottom]
         Caption = 'Midi'
         Font.Style = [fsBold]
@@ -432,7 +409,7 @@ object PlanningFrame: TPlanningFrame
         Left = 53
         Height = 271
         Top = 258
-        Width = 28
+        Width = 22
         Anchors = [akTop, akLeft, akBottom]
         Caption = 'Soir'
         Font.Style = [fsBold]
@@ -457,7 +434,7 @@ object PlanningFrame: TPlanningFrame
     left = 776
     top = 440
   end
-  object InfoRecipeDS: TDatasource
+  object InfoRecipeDS: TDataSource
     DataSet = InfoRecipeDbf
     left = 816
     top = 440
@@ -469,7 +446,7 @@ object PlanningFrame: TPlanningFrame
     left = 872
     top = 400
   end
-  object InfoIngrDS: TDatasource
+  object InfoIngrDS: TDataSource
     DataSet = InfoIngrDbf
     left = 912
     top = 400
@@ -481,7 +458,7 @@ object PlanningFrame: TPlanningFrame
     left = 896
     top = 464
   end
-  object InfoCompoDS: TDatasource
+  object InfoCompoDS: TDataSource
     DataSet = InfoCompoDbf
     left = 936
     top = 464

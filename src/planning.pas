@@ -50,9 +50,7 @@ type
     Label16: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     Label5: TLabel;
-    Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
@@ -63,6 +61,7 @@ type
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
     procedure EditCancelButtonClick(Sender: TObject);
+    procedure EditOkButtonClick(Sender: TObject);
     procedure EditRecipeButtonClick(Sender: TObject);
     procedure FrameClick(Sender: TObject);
     procedure ScrollPanelResize(Sender: TObject);
@@ -151,6 +150,34 @@ begin
     //dans le planning).
     OnDishSelected(SelectedDay, SelectedMealtime, SelectedRecipeType,
         SelectedRecipeId);
+end;
+
+procedure TPlanningFrame.EditOkButtonClick(Sender: TObject);
+begin
+    InformationPageControl.PageIndex := 1;
+
+    IsInEditMode := False;
+
+    //On affecte le nouveau repas à celui qui a été modifié
+    if SelectedRecipeType = rtStarter then
+    begin
+        PlanningDayControls[SelectedDay][SelectedMealtime].SetStarter(
+            InfoRecipeDbf.FieldByName('CODE').AsInteger);
+    end
+    else if SelectedRecipeType = rtMeal then
+    begin
+        PlanningDayControls[SelectedDay][SelectedMealtime].SetMeal(
+            InfoRecipeDbf.FieldByName('CODE').AsInteger);
+    end
+    else if SelectedRecipeType = rtDessert then
+    begin
+        PlanningDayControls[SelectedDay][SelectedMealtime].SetDessert(
+            InfoRecipeDbf.FieldByName('CODE').AsInteger);
+    end;
+
+    //Mise à jour du panneau d'information
+    OnDishSelected(SelectedDay, SelectedMealtime, SelectedRecipeType,
+        InfoRecipeDbf.FieldByName('CODE').AsInteger);
 end;
 
 procedure TPlanningFrame.ScrollBar1Scroll(Sender: TObject;

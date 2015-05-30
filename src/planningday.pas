@@ -31,6 +31,7 @@ type
     CaloriesLabel: TLabel;
     ListView1: TListView;
 
+    procedure ListView1Click(Sender: TObject);
     procedure ListView1SelectItem(Sender: TObject; Item: TListItem;
       Selected: Boolean);
     procedure RecipeDbfAfterOpen(DataSet: TDataSet);
@@ -124,6 +125,11 @@ begin
 
           OnDishSelected(Day, Mealtime, DishType, RecipeId);
      end;
+end;
+
+procedure TPlanningDayControl.ListView1Click(Sender: TObject);
+begin
+
 end;
 
 function TPlanningDayControl.GetRecipeName(Id: Integer) : string;

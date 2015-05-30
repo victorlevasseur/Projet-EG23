@@ -3,8 +3,8 @@ object PlanningDayControl: TPlanningDayControl
   Height = 205
   Top = 0
   Width = 272
-  HorzScrollBar.Page = 272
-  VertScrollBar.Page = 205
+  HorzScrollBar.Page = 1
+  VertScrollBar.Page = 1
   AutoScroll = True
   ClientHeight = 205
   ClientWidth = 272
@@ -42,13 +42,14 @@ object PlanningDayControl: TPlanningDayControl
     ShowHint = True
     TabOrder = 0
     ViewStyle = vsReport
+    OnClick = ListView1Click
     OnSelectItem = ListView1SelectItem
   end
   object CaloriesLabel: TLabel
     Left = 8
     Height = 15
     Top = 153
-    Width = 85
+    Width = 70
     Anchors = [akLeft, akBottom]
     Caption = 'CaloriesLabel'
     ParentColor = False
@@ -57,7 +58,7 @@ object PlanningDayControl: TPlanningDayControl
     Left = 8
     Height = 15
     Top = 168
-    Width = 89
+    Width = 74
     Anchors = [akLeft, akBottom]
     Caption = 'DurationLabel'
     ParentColor = False
@@ -66,7 +67,7 @@ object PlanningDayControl: TPlanningDayControl
     Left = 8
     Height = 15
     Top = 184
-    Width = 63
+    Width = 52
     Anchors = [akLeft, akBottom]
     Caption = 'CostLabel'
     ParentColor = False
