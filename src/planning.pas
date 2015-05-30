@@ -6,11 +6,9 @@ interface
 
 uses
   Classes, SysUtils, dbf, db, FileUtil, Forms, Controls, StdCtrls, ComCtrls,
-  ExtCtrls, Dialogs, DbCtrls, DBGrids, PlanningDay, fgl;
+  ExtCtrls, Dialogs, DbCtrls, DBGrids, PlanningDay, ShoppingList;
 
 type
-  TPlanningDayControlsMap2 = specialize TFPGMap<TMealtime, TPlanningDayControl>;
-  TPlanningDayControlsMap = specialize TFPGMap<TDayOfWeek, TPlanningDayControlsMap2>;
   TLabelList = array of TLabel;
 
   { TPlanningFrame }
@@ -69,6 +67,7 @@ type
     procedure ScrollBar1Change(Sender: TObject);
     procedure ScrollBar1Scroll(Sender: TObject; ScrollCode: TScrollCode;
         var ScrollPos: Integer);
+    procedure ShoppingListButtonClick(Sender: TObject);
   private
     { private declarations }
     procedure OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;
@@ -140,6 +139,7 @@ begin
     if(SelectedDay <> dowNone) then
     begin
         IsInEditMode := True;
+        ShoppingListButton.Enabled := False;
 
         InformationPageControl.PageIndex := 0;
 
@@ -160,6 +160,7 @@ begin
     InformationPageControl.PageIndex := 1;
 
     IsInEditMode := False;
+    ShoppingListButton.Enabled := True;
 
     InfoRecipeDbf.Filtered := False;
 
@@ -175,6 +176,7 @@ begin
     InformationPageControl.PageIndex := 1;
 
     IsInEditMode := False;
+    ShoppingListButton.Enabled := True;
 
     InfoRecipeDbf.Filtered := False;
 
@@ -204,6 +206,47 @@ procedure TPlanningFrame.ScrollBar1Scroll(Sender: TObject;
     ScrollCode: TScrollCode; var ScrollPos: Integer);
 begin
     InsideScrollPanel.Left := -ScrollPos;
+end;
+
+procedure TPlanningFrame.ShoppingListButtonClick(Sender: TObject);
+var
+  RecipeList: TRecipeList;
+  Day: TDayOfWeek;
+  Mealtime: TMealtime;
+  OneDayRecipeList: T3IntegerArray;
+  i: Integer;
+  useless: Integer;
+  Dialog: TShoppingListDialog;
+begin
+    //Calcul du nombre de chaque recettes
+    RecipeList := TRecipeList.Create;
+
+    //On parcourt tous les widgets (repas) pour lister les recettes
+    for Day := dowMonday to dowSunday do
+    begin
+        for Mealtime := mtLunch to mtDinner do
+        begin
+            //Récupère la liste des recettes du repas
+            OneDayRecipeList := PlanningDayControls[Day][Mealtime].GetRecipeList;
+
+            //On parcourt cette liste
+            for i := 0 to 2 do
+            begin
+                if not RecipeList.Find(OneDayRecipeList[i], useless) then
+                begin
+                    RecipeList[OneDayRecipeList[i]] := 0;
+                end;
+                RecipeList[OneDayRecipeList[i]] :=
+                    RecipeList[OneDayRecipeList[i]] + 1;
+            end;
+        end;
+    end;
+
+    //On crée la fenêtre et on affiche le résultat
+    Dialog := TShoppingListDialog.Create(self);
+    Dialog.SetRecipeList(RecipeList);
+    Dialog.ConnectDB;
+    Dialog.ShowModal;
 end;
 
 procedure TPlanningFrame.OnDishSelected(Day: TDayOfWeek; Mealtime: TMealtime;

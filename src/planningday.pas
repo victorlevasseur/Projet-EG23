@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, dbf, sqldb, FileUtil, Forms, Controls, StdCtrls,
-  ComCtrls, Grids, Dialogs;
+  ComCtrls, Grids, Dialogs, fgl;
 
 type
 
@@ -15,6 +15,8 @@ type
   TMealtime = (mtNone, mtLunch, mtDinner);
 
   TRecipeType = (rtNone, rtStarter, rtMeal, rtDessert);
+
+  T3IntegerArray = array[0..2] of Integer;
 
   TPlanningDayClickEvent = procedure (Day: TDayOfWeek; Mealtime: TMealtime;
     TypeOfRecipe: TRecipeType; RecipeId: Integer) of object;
@@ -78,6 +80,9 @@ type
     function GetDessert : Integer;
     procedure SetDessert(Id: Integer);
 
+    //Retourne une liste contenant les recettes
+    function GetRecipeList : T3IntegerArray;
+
     //Méthode permettant de sélectionner un plat dans le contrôle
     procedure SelectDish(RecipeType: TRecipeType);
 
@@ -88,6 +93,9 @@ type
   end;
 
   PPlanningDayControl = ^TPlanningDayControl;
+
+  TPlanningDayControlsMap2 = specialize TFPGMap<TMealtime, TPlanningDayControl>;
+  TPlanningDayControlsMap = specialize TFPGMap<TDayOfWeek, TPlanningDayControlsMap2>;
 
 implementation
 
@@ -265,6 +273,13 @@ procedure TPlanningDayControl.SetDessert(Id: Integer);
 begin
      DessertId := Id;
      UpdateListView;
+end;
+
+function TPlanningDayControl.GetRecipeList : T3IntegerArray;
+begin
+    GetRecipeList[0] := GetStarter;
+    GetRecipeList[1] := GetMeal;
+    GetRecipeList[2] := GetDessert;
 end;
 
 procedure TPlanningDayControl.SelectDish(RecipeType: TRecipeType);

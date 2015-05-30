@@ -431,9 +431,10 @@ object PlanningFrame: TPlanningFrame
   object ShoppingListButton: TButton
     Left = 232
     Height = 25
-    Top = 6
+    Top = 8
     Width = 235
     Caption = 'Liste de courses....'
+    OnClick = ShoppingListButtonClick
     TabOrder = 4
   end
   object InfoRecipeDbf: TDbf

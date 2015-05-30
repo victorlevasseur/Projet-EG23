@@ -1,0 +1,63 @@
+object ShoppingListDialog: TShoppingListDialog
+  Left = 271
+  Height = 405
+  Top = 159
+  Width = 463
+  Caption = 'Liste de courses'
+  ClientHeight = 405
+  ClientWidth = 463
+  LCLVersion = '1.2.6.0'
+  object Memo: TMemo
+    Left = 8
+    Height = 314
+    Top = 40
+    Width = 449
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Lines.Strings = (
+      'Memo'
+    )
+    TabOrder = 0
+  end
+  object CloseButton: TButton
+    Left = 382
+    Height = 25
+    Top = 376
+    Width = 75
+    Anchors = [akTop, akRight, akBottom]
+    Caption = 'Fermer'
+    OnClick = CloseButtonClick
+    TabOrder = 1
+  end
+  object SaveButton: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 176
+    Caption = 'Enregistrer dans un fichier...'
+    TabOrder = 2
+  end
+  object PrintButton: TButton
+    Left = 192
+    Height = 25
+    Top = 8
+    Width = 184
+    Caption = 'Imprimer la liste...'
+    TabOrder = 3
+  end
+  object CompoDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    AfterOpen = CompoDbfAfterOpen
+    left = 136
+    top = 296
+  end
+  object IngrDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    AfterOpen = CompoDbfAfterOpen
+    left = 216
+    top = 296
+  end
+end

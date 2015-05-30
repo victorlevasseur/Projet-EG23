@@ -44,7 +44,7 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="5">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -74,6 +74,13 @@
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="PlanningDay"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="src/shoppinglist.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ShoppingListDialog"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ShoppingList"/>
+      </Unit4>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
