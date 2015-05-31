@@ -2,9 +2,9 @@ object IngredientFrame: TIngredientFrame
   Left = 0
   Height = 589
   Top = 0
-  Width = 880
+  Width = 878
   ClientHeight = 589
-  ClientWidth = 880
+  ClientWidth = 878
   TabOrder = 0
   DesignLeft = 261
   DesignTop = 168
@@ -12,30 +12,35 @@ object IngredientFrame: TIngredientFrame
     Left = 40
     Height = 23
     Top = 24
-    Width = 152
+    Width = 184
+    OnChange = SearchIngrEditChange
     TabOrder = 0
   end
   object NewIngrButton: TButton
     Left = 0
     Height = 25
     Top = 0
-    Width = 96
+    Width = 112
     Caption = 'Nouveau'
     TabOrder = 1
   end
   object RemoveIngrButton: TButton
-    Left = 96
+    Left = 112
     Height = 25
     Top = 0
-    Width = 96
+    Width = 112
     Caption = 'Supprimer'
     TabOrder = 2
   end
   object Label1: TLabel
-    Left = 0
+    AnchorSideTop.Control = SearchIngrEdit
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = SearchIngrEdit
+    Left = 4
     Height = 15
-    Top = 24
+    Top = 28
     Width = 36
+    Anchors = [akTop, akRight]
     Caption = 'Filtrer :'
     ParentColor = False
   end
@@ -43,25 +48,223 @@ object IngredientFrame: TIngredientFrame
     Left = 0
     Height = 541
     Top = 48
-    Width = 192
+    Width = 224
     Anchors = [akTop, akLeft, akBottom]
+    AutoFillColumns = True
     Color = clWindow
     Columns = <    
       item
         Title.Caption = 'Ingrédient'
-        Width = 150
+        Width = 203
         FieldName = 'INTITULE'
       end>
     DataSource = IngrDS
+    DefaultRowHeight = 30
     FixedCols = 0
     Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssVertical
     TabOrder = 3
     TitleStyle = tsNative
+  end
+  object Label2: TLabel
+    Left = 232
+    Height = 30
+    Top = 8
+    Width = 217
+    Caption = 'Edition de l''ingrédient "'
+    Font.Height = -21
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    AnchorSideLeft.Control = DBText1
+    AnchorSideLeft.Side = asrBottom
+    Left = 536
+    Height = 30
+    Top = 8
+    Width = 8
+    BorderSpacing.Left = 5
+    Caption = '"'
+    Font.Height = -21
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBText1: TDBText
+    AnchorSideLeft.Control = Label2
+    AnchorSideLeft.Side = asrBottom
+    Left = 454
+    Height = 30
+    Top = 8
+    Width = 77
+    BorderSpacing.Left = 5
+    DataField = 'INTITULE'
+    DataSource = IngrDS
+    Font.Height = -21
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 300
+    Height = 15
+    Top = 64
+    Width = 33
+    Caption = 'Nom :'
+    ParentColor = False
+  end
+  object DBEdit1: TDBEdit
+    AnchorSideLeft.Control = Label4
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label4
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Side = asrBottom
+    Left = 336
+    Height = 23
+    Top = 60
+    Width = 536
+    DataField = 'INTITULE'
+    DataSource = IngrDS
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 3
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 4
+  end
+  object Label5: TLabel
+    Left = 300
+    Height = 15
+    Top = 100
+    Width = 32
+    Caption = 'Type :'
+    ParentColor = False
+  end
+  object DBComboBox1: TDBComboBox
+    AnchorSideLeft.Control = Label5
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label5
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Side = asrBottom
+    Left = 335
+    Height = 23
+    Top = 96
+    Width = 537
+    Anchors = [akTop, akLeft, akRight]
+    AutoComplete = True
+    BorderSpacing.Left = 3
+    DataField = 'TYPE'
+    DataSource = IngrDS
+    ItemHeight = 15
+    Items.Strings = (
+      'Condiment'
+      'Legume'
+      'Fruit'
+      'Produit laitier'
+      'Feculent'
+      'Viande'
+      'Additif'
+    )
+    MaxLength = 0
+    TabOrder = 5
+  end
+  object Label6: TLabel
+    Left = 278
+    Height = 15
+    Top = 140
+    Width = 54
+    Caption = 'Précision :'
+    ParentColor = False
+  end
+  object DBEdit2: TDBEdit
+    AnchorSideLeft.Control = Label6
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label6
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Side = asrBottom
+    Left = 335
+    Height = 23
+    Top = 136
+    Width = 537
+    DataField = 'PRECISION'
+    DataSource = IngrDS
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 3
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 6
+  end
+  object Label7: TLabel
+    Left = 232
+    Height = 15
+    Top = 176
+    Width = 100
+    Caption = 'Conditionnement :'
+    ParentColor = False
+  end
+  object DBComboBox2: TDBComboBox
+    AnchorSideLeft.Control = Label7
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label7
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Side = asrBottom
+    Left = 335
+    Height = 23
+    Top = 172
+    Width = 537
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 3
+    DataField = 'CONDITION'
+    DataSource = IngrDS
+    ItemHeight = 15
+    Items.Strings = (
+      'En bouteille'
+      'Grains fins'
+      'Grains moulus'
+      'En vrac'
+      'Barquette'
+      'En motte'
+      'En boite'
+    )
+    MaxLength = 0
+    TabOrder = 7
+  end
+  object Label8: TLabel
+    Left = 298
+    Height = 15
+    Top = 216
+    Width = 34
+    Caption = 'Unité :'
+    ParentColor = False
+  end
+  object DBComboBox3: TDBComboBox
+    AnchorSideLeft.Control = Label8
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Label8
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Side = asrBottom
+    Left = 335
+    Height = 23
+    Top = 212
+    Width = 537
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 3
+    DataField = 'UNITE'
+    DataSource = IngrDS
+    ItemHeight = 15
+    Items.Strings = (
+      'Gramme'
+      'Piece'
+      'Cuillere a soupe'
+      'Cuillere a cafe'
+      'Pincee'
+      'Litre'
+    )
+    MaxLength = 0
+    TabOrder = 8
   end
   object IngrDbf: TDbf
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
+    OnFilterRecord = IngrDbfFilterRecord
     left = 35
     top = 516
   end

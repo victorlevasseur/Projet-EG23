@@ -86,6 +86,7 @@
         <Filename Value="src/ingredient.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="IngredientFrame"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="Ingredient"/>
       </Unit5>
