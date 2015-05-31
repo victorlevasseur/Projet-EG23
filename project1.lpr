@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, dbflaz, Unit1, Planning, PlanningDay, ShoppingList;
+  Forms, dbflaz, Unit1, Planning, PlanningDay, ShoppingList, Ingredient;
 
 {$R *.res}
 

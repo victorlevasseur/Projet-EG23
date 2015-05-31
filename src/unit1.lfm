@@ -4,27 +4,69 @@ object Form1: TForm1
   Top = 178
   Width = 1047
   Caption = 'Logiciel de gestion de repas'
-  ClientHeight = 654
+  ClientHeight = 653
   ClientWidth = 1047
   Menu = MainMenu
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.6.0'
   object MainPageControl: TPageControl
     Left = 0
-    Height = 654
+    Height = 653
     Top = 0
     Width = 1047
-    ActivePage = PlanningTabSheet
+    ActivePage = IngredientsTabSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 0
     object PlanningTabSheet: TTabSheet
       Caption = 'Planning des repas de la semaine'
-      ClientHeight = 617
+      ClientHeight = 625
       ClientWidth = 1039
       inline PlanningFrame1: TPlanningFrame
         Left = 5
+        Height = 599
         Top = 11
         Anchors = [akTop, akLeft, akRight, akBottom]
+        ClientHeight = 599
+        inherited InformationGroupBox: TGroupBox
+          Height = 567
+          ClientHeight = 549
+          inherited InformationPageControl: TPageControl
+            Height = 549
+            inherited InformationTabSheet: TTabSheet
+              ClientHeight = 541
+              inherited DBGrid1: TDBGrid
+                Height = 440
+              end
+              inherited EditCancelButton: TButton
+                Top = 509
+              end
+              inherited EditOkButton: TButton
+                Top = 509
+              end
+            end
+          end
+        end
+        inherited ScrollBar1: TScrollBar
+          Top = 576
+        end
+        inherited ScrollPanel: TPanel
+          Height = 538
+          ClientHeight = 538
+          inherited InsideScrollPanel: TPanel
+            Height = 538
+            ClientHeight = 538
+            inherited CenterLabel: TLabel
+              Top = 262
+            end
+            inherited Label1: TLabel
+              Height = 276
+            end
+            inherited Label2: TLabel
+              Height = 275
+              Top = 262
+            end
+          end
+        end
       end
     end
     object RecipesTabSheet: TTabSheet
@@ -32,6 +74,10 @@ object Form1: TForm1
     end
     object IngredientsTabSheet: TTabSheet
       Caption = 'Editer les ingrédients'
+      ClientHeight = 625
+      ClientWidth = 1039
+      inline IngredientFrame1: TIngredientFrame
+      end
     end
   end
   object MainMenu: TMainMenu

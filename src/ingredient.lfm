@@ -1,0 +1,73 @@
+object IngredientFrame: TIngredientFrame
+  Left = 0
+  Height = 589
+  Top = 0
+  Width = 880
+  ClientHeight = 589
+  ClientWidth = 880
+  TabOrder = 0
+  DesignLeft = 261
+  DesignTop = 168
+  object SearchIngrEdit: TEdit
+    Left = 40
+    Height = 23
+    Top = 24
+    Width = 152
+    TabOrder = 0
+  end
+  object NewIngrButton: TButton
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 96
+    Caption = 'Nouveau'
+    TabOrder = 1
+  end
+  object RemoveIngrButton: TButton
+    Left = 96
+    Height = 25
+    Top = 0
+    Width = 96
+    Caption = 'Supprimer'
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 0
+    Height = 15
+    Top = 24
+    Width = 36
+    Caption = 'Filtrer :'
+    ParentColor = False
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 541
+    Top = 48
+    Width = 192
+    Anchors = [akTop, akLeft, akBottom]
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Ingrédient'
+        Width = 150
+        FieldName = 'INTITULE'
+      end>
+    DataSource = IngrDS
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 3
+    TitleStyle = tsNative
+  end
+  object IngrDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 35
+    top = 516
+  end
+  object IngrDS: TDataSource
+    DataSet = IngrDbf
+    left = 89
+    top = 517
+  end
+end

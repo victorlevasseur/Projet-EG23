@@ -6,13 +6,14 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ActnList, Menus, Planning;
+  ActnList, Menus, Planning, Ingredient;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    IngredientFrame1: TIngredientFrame;
     MainMenu: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
