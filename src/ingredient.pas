@@ -97,8 +97,6 @@ begin
     if MessageDlg('Êtes-vous sûr(e) de vouloir supprimer l''ingrédient sélectionné ?',
         mtConfirmation, [mbYes,mbNo], 0) = mrYes then
         IngrDbf.Delete;
-
-    IngrDbf.Post;
 end;
 
 constructor TIngredientFrame.Create(AOwner: TComponent);

@@ -94,6 +94,7 @@
         <Filename Value="src/recipe.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="RecipeFrame"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="Recipe"/>
       </Unit6>
