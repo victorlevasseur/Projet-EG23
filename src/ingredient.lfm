@@ -22,6 +22,7 @@ object IngredientFrame: TIngredientFrame
     Top = 0
     Width = 112
     Caption = 'Nouveau'
+    OnClick = NewIngrButtonClick
     TabOrder = 1
   end
   object RemoveIngrButton: TButton
@@ -30,6 +31,7 @@ object IngredientFrame: TIngredientFrame
     Top = 0
     Width = 112
     Caption = 'Supprimer'
+    OnClick = RemoveIngrButtonClick
     TabOrder = 2
   end
   object Label1: TLabel
