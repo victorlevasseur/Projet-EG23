@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ActnList, Menus, Planning, Ingredient;
+  ActnList, Menus, Planning, Ingredient, recipe;
 
 type
 
@@ -22,6 +22,7 @@ type
     MenuItem4: TMenuItem;
     PlanningFrame1: TPlanningFrame;
     PlanningTabSheet: TTabSheet;
+    RecipeFrame1: TRecipeFrame;
     RecipesTabSheet: TTabSheet;
     IngredientsTabSheet: TTabSheet;
     procedure OnQuitMenuItemClicked(Sender: TObject);
