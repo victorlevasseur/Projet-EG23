@@ -426,6 +426,7 @@ object PlanningFrame: TPlanningFrame
     Top = 6
     Width = 216
     Caption = 'Générer un planning aléatoire'
+    OnClick = Button1Click
     TabOrder = 3
   end
   object ShoppingListButton: TButton

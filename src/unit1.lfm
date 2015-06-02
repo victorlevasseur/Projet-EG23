@@ -13,57 +13,58 @@ object Form1: TForm1
     Height = 724
     Top = 0
     Width = 1047
-    ActivePage = RecipesTabSheet
+    ActivePage = PlanningTabSheet
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 0
     object PlanningTabSheet: TTabSheet
       Caption = 'Planning des repas de la semaine'
-      ClientHeight = 625
+      ClientHeight = 696
       ClientWidth = 1039
       inline PlanningFrame1: TPlanningFrame
         Left = 5
-        Height = 599
+        Height = 670
         Top = 11
         Anchors = [akTop, akLeft, akRight, akBottom]
-        ClientHeight = 599
+        ClientHeight = 670
         inherited InformationGroupBox: TGroupBox
-          Height = 567
-          ClientHeight = 549
+          Height = 638
+          ClientHeight = 620
           inherited InformationPageControl: TPageControl
-            Height = 549
+            Height = 620
             inherited InformationTabSheet: TTabSheet
-              ClientHeight = 541
+              ClientHeight = 612
+              ClientWidth = 296
               inherited DBGrid1: TDBGrid
-                Height = 440
+                Height = 511
               end
               inherited EditCancelButton: TButton
-                Top = 509
+                Top = 580
               end
               inherited EditOkButton: TButton
-                Top = 509
+                Top = 580
               end
             end
           end
         end
         inherited ScrollBar1: TScrollBar
-          Top = 576
+          Top = 647
         end
         inherited ScrollPanel: TPanel
-          Height = 538
-          ClientHeight = 538
+          Height = 609
+          ClientHeight = 609
           inherited InsideScrollPanel: TPanel
-            Height = 538
-            ClientHeight = 538
+            Height = 609
+            ClientHeight = 609
             inherited CenterLabel: TLabel
-              Top = 262
+              Top = 297
             end
             inherited Label1: TLabel
-              Height = 276
+              Height = 311
             end
             inherited Label2: TLabel
-              Height = 275
-              Top = 262
+              Height = 311
+              Top = 297
             end
           end
         end
@@ -75,28 +76,101 @@ object Form1: TForm1
       ClientWidth = 1039
       inline RecipeFrame1: TRecipeFrame
         Left = 4
+        Height = 693
         Top = 4
+        Width = 1036
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        ClientHeight = 693
+        ClientWidth = 1036
+        inherited DBGrid1: TDBGrid
+          Height = 645
+        end
+        inherited DBEdit1: TDBEdit
+          Width = 738
+        end
+        inherited DBComboBox1: TDBComboBox
+          Width = 394
+        end
+        inherited DBRadioGroup1: TDBRadioGroup
+          Width = 394
+        end
+        inherited GroupBox1: TGroupBox
+          Width = 775
+          ClientWidth = 771
+          inherited DBEdit3: TDBEdit
+            Width = 335
+          end
+          inherited Label10: TLabel
+            Left = 733
+          end
+        end
+        inherited DBEdit4: TDBEdit
+          Width = 394
+        end
+        inherited DBEdit5: TDBEdit
+          Width = 362
+        end
+        inherited Label13: TLabel
+          Left = 1000
+        end
+        inherited DBEdit6: TDBEdit
+          Width = 362
+        end
+        inherited Label16: TLabel
+          Left = 1000
+        end
+        inherited Panel1: TPanel
+          Height = 333
+          Width = 796
+          ClientHeight = 333
+          ClientWidth = 796
+          inherited Label17: TLabel
+            Left = 397
+          end
+          inherited GroupBox2: TGroupBox
+            Height = 316
+            Width = 349
+            ClientHeight = 298
+            ClientWidth = 345
+            inherited DBGrid2: TDBGrid
+              Height = 280
+              Width = 331
+            end
+          end
+          inherited GroupBox3: TGroupBox
+            Left = 440
+            Height = 316
+            Width = 349
+            ClientHeight = 298
+            ClientWidth = 345
+            inherited DBGrid3: TDBGrid
+              Height = 280
+              Width = 330
+            end
+          end
+          inherited AddIngrButton: TButton
+            Left = 361
+            Top = 154
+          end
+          inherited DeleteIngrButton: TButton
+            Left = 361
+            Top = 183
+          end
+        end
       end
     end
     object IngredientsTabSheet: TTabSheet
       Caption = 'Editer les ingrédients'
-      ClientHeight = 625
+      ClientHeight = 696
       ClientWidth = 1039
       inline IngredientFrame1: TIngredientFrame
-        Height = 624
+        Height = 695
         Width = 1040
         Anchors = [akTop, akLeft, akRight, akBottom]
-        ClientHeight = 624
+        ClientHeight = 695
         ClientWidth = 1040
         inherited DBGrid1: TDBGrid
-          Height = 576
-          Columns = <          
-            item
-              PickList.Strings = (              )
-              Title.Caption = 'Ingrédient'
-              Width = 203
-              FieldName = 'INTITULE'
-            end>
+          Height = 647
         end
         inherited DBEdit1: TDBEdit
           Width = 698

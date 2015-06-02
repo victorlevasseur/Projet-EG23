@@ -86,6 +86,10 @@ type
     //Méthode permettant de sélectionner un plat dans le contrôle
     procedure SelectDish(RecipeType: TRecipeType);
 
+    //Méthode permettant de mettre un entrée, un plat et un dessert de façon
+    //aléatoire
+    procedure SetRandomRecipes;
+
   public
     //Info à propos du jour et du repas auquel ce contrôle correspond
     Day: TDayOfWeek;
@@ -230,6 +234,8 @@ begin
      MealId := -1;
      DessertId := -1;
 
+     Randomize;
+
      LastSelectedDish := rtNone;
 
      Day := dowNone;
@@ -292,6 +298,48 @@ begin
      begin
         ListView1.Selected := nil;
      end;
+end;
+
+procedure TPlanningDayControl.SetRandomRecipes;
+var
+  StarterDone: Boolean; //Mis à vrai dès qu'une entrée a été sélectionnée
+  MealDone: Boolean; //Pareil pour le plat
+  DessertDone: Boolean; //Pareil pour le dessert
+  RandomNumber: Integer;
+begin
+    StarterDone := False;
+    MealDone := False;
+    DessertDone := False;
+    //Principe de la sélection aléatoire :
+    //On boucle jusqu'à avoir trouver de façon aléatoire : une entrée, un plat,
+    //et un dessert.
+    while (not StarterDone) or (not MealDone) or (not DessertDone) do
+    begin
+        //Sélection d'un nombre aléatoire
+        RandomNumber := Random(RecipeDbf.RecordCount);
+
+        //On bouge jusqu'à l'enregistrement sélectionné
+        RecipeDbf.First;
+        RecipeDbf.MoveBy(RandomNumber);
+        if (RecipeDbf.FieldByName('TYPE').AsString = 'Entr,e') and
+            (not StarterDone) then
+        begin
+            SetStarter(RecipeDbf.FieldByName('CODE').AsInteger);
+            StarterDone := True
+        end
+        else if (RecipeDbf.FieldByName('TYPE').AsString = 'Plats') and
+            (not MealDone) then
+        begin
+            SetMeal(RecipeDbf.FieldByName('CODE').AsInteger);
+            MealDone := True
+        end
+        else if (RecipeDbf.FieldByName('TYPE').AsString = 'Dessert') and
+            (not DessertDone) then
+        begin
+            SetDessert(RecipeDbf.FieldByName('CODE').AsInteger);
+            DessertDone := True
+        end;
+    end;
 end;
 
 end.

@@ -59,6 +59,7 @@ type
     ScrollBar1: TScrollBar;
     InformationTabSheet: TTabSheet;
     EditTabSheet: TTabSheet;
+    procedure Button1Click(Sender: TObject);
     procedure EditCancelButtonClick(Sender: TObject);
     procedure EditOkButtonClick(Sender: TObject);
     procedure EditRecipeButtonClick(Sender: TObject);
@@ -169,6 +170,22 @@ begin
     //dans le planning).
     OnDishSelected(SelectedDay, SelectedMealtime, SelectedRecipeType,
         SelectedRecipeId);
+end;
+
+procedure TPlanningFrame.Button1Click(Sender: TObject);
+var
+  Day: TDayOfWeek;
+  Mealtime: TMealtime;
+begin
+    //On parcourt chaque jour+repas
+    for Day := dowMonday to dowSunday do
+    begin
+        for Mealtime := mtLunch to mtDinner do
+        begin
+            //On définit les recettes aléatoirement
+            PlanningDayControls[Day][Mealtime].SetRandomRecipes;
+        end;
+    end;
 end;
 
 procedure TPlanningFrame.EditOkButtonClick(Sender: TObject);
