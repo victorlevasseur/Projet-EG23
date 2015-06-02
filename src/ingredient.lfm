@@ -63,7 +63,7 @@ object IngredientFrame: TIngredientFrame
     DataSource = IngrDS
     DefaultRowHeight = 30
     FixedCols = 0
-    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiselect]
     Scrollbars = ssVertical
     TabOrder = 3
     TitleStyle = tsNative

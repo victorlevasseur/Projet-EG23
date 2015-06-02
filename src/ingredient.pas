@@ -92,11 +92,32 @@ begin
 end;
 
 procedure TIngredientFrame.RemoveIngrButtonClick(Sender: TObject);
+var
+  i: Integer;
 begin
-    //Suppresion d'un enregistrement (avec confirmation)
-    if MessageDlg('Êtes-vous sûr(e) de vouloir supprimer l''ingrédient sélectionné ?',
+    //Demande de confirmation
+    if MessageDlg('Êtes-vous sûr(e) de vouloir supprimer le(s) ingrédient(s) sélectionné(s) ?',
         mtConfirmation, [mbYes,mbNo], 0) = mrYes then
-        IngrDbf.Delete;
+    begin
+        //Suppression d'un ingrédient
+        if DBGrid1.SelectedRows.Count > 0 then
+        begin
+            //On parcourt chacun des ingrédients sélectionnés
+            for i := 0 to DBGrid1.SelectedRows.Count-1 do
+            begin
+                //On va chercher l'enregistrement de l'ingrédient correspondant
+                try
+                begin
+                    IngrDbf.GotoBookmark(Pointer(DBGrid1.SelectedRows.Items[i]));
+
+                    //On supprime l'enregistrement
+                    IngrDbf.Delete;
+                end
+                except
+                end;
+            end;
+        end
+    end;
 end;
 
 constructor TIngredientFrame.Create(AOwner: TComponent);
