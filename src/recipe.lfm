@@ -1,0 +1,591 @@
+object RecipeFrame: TRecipeFrame
+  Left = 0
+  Height = 669
+  Top = 0
+  Width = 951
+  ClientHeight = 669
+  ClientWidth = 951
+  TabOrder = 0
+  DesignLeft = 335
+  DesignTop = 163
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 621
+    Top = 48
+    Width = 224
+    Anchors = [akTop, akLeft, akBottom]
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Recette'
+        Width = 203
+        FieldName = 'INTITULE'
+      end>
+    DataSource = RecipeDS
+    DefaultRowHeight = 30
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiselect]
+    Scrollbars = ssVertical
+    TabOrder = 0
+    TitleStyle = tsNative
+  end
+  object NewRecipeButton: TButton
+    Left = 0
+    Height = 25
+    Top = 0
+    Width = 112
+    Caption = 'Nouvelle recette'
+    OnClick = NewRecipeButtonClick
+    TabOrder = 1
+  end
+  object DeleteRecipeButton: TButton
+    Left = 112
+    Height = 25
+    Top = 0
+    Width = 112
+    Caption = 'Supprimer'
+    OnClick = DeleteRecipeButtonClick
+    TabOrder = 2
+  end
+  object SearchEdit: TEdit
+    Left = 40
+    Height = 23
+    Top = 24
+    Width = 184
+    OnChange = SearchEditChange
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    AnchorSideTop.Control = SearchEdit
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = SearchEdit
+    Left = 4
+    Height = 15
+    Top = 28
+    Width = 36
+    Anchors = [akTop, akRight]
+    Caption = 'Filtrer :'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 232
+    Height = 30
+    Top = 0
+    Width = 107
+    Caption = 'Edition de "'
+    Font.Height = -21
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBText1: TDBText
+    AnchorSideLeft.Control = Label2
+    AnchorSideLeft.Side = asrBottom
+    Left = 342
+    Height = 30
+    Top = 0
+    Width = 77
+    BorderSpacing.Left = 3
+    DataField = 'INTITULE'
+    DataSource = RecipeDS
+    Font.Height = -21
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label3: TLabel
+    AnchorSideLeft.Control = DBText1
+    AnchorSideLeft.Side = asrBottom
+    Left = 422
+    Height = 30
+    Top = 0
+    Width = 8
+    BorderSpacing.Left = 3
+    Caption = '"'
+    Font.Height = -21
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBEdit1: TDBEdit
+    Left = 288
+    Height = 23
+    Top = 48
+    Width = 653
+    DataField = 'INTITULE'
+    DataSource = RecipeDS
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 4
+  end
+  object Label4: TLabel
+    AnchorSideTop.Control = DBEdit1
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = DBEdit1
+    Left = 249
+    Height = 15
+    Top = 52
+    Width = 33
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 6
+    Caption = 'Nom :'
+    ParentColor = False
+  end
+  object Label5: TLabel
+    AnchorSideTop.Control = DBComboBox1
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = DBComboBox1
+    Left = 594
+    Height = 15
+    Top = 116
+    Width = 32
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 6
+    Caption = 'Type :'
+    ParentColor = False
+  end
+  object DBComboBox1: TDBComboBox
+    Left = 632
+    Height = 23
+    Top = 112
+    Width = 309
+    Anchors = [akTop, akLeft, akRight]
+    DataField = 'TYPE'
+    DataSource = RecipeDS
+    DropDownCount = 3
+    ItemHeight = 15
+    Items.Strings = (
+      'Entr,e'
+      'Plats'
+      'Dessert'
+    )
+    MaxLength = 0
+    Style = csDropDownList
+    TabOrder = 5
+  end
+  object Label6: TLabel
+    AnchorSideTop.Control = DBRadioGroup1
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = DBRadioGroup1
+    Left = 572
+    Height = 15
+    Top = 189
+    Width = 54
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 6
+    Caption = 'Difficulté :'
+    ParentColor = False
+  end
+  object DBRadioGroup1: TDBRadioGroup
+    Left = 632
+    Height = 40
+    Top = 176
+    Width = 309
+    Anchors = [akTop, akLeft, akRight]
+    Columns = 111
+    DataField = 'DIFFICULTE'
+    DataSource = RecipeDS
+    Items.Strings = (
+      '0'
+      '1'
+      '2'
+      '3'
+      '4'
+      '5'
+      '6'
+      '7'
+      '8'
+      '9'
+      '10'
+    )
+    TabOrder = 6
+  end
+  object GroupBox1: TGroupBox
+    Left = 248
+    Height = 56
+    Top = 304
+    Width = 690
+    Anchors = [akTop, akLeft, akRight]
+    Caption = 'Temps'
+    ClientHeight = 38
+    ClientWidth = 686
+    TabOrder = 7
+    object DBEdit2: TDBEdit
+      Left = 112
+      Height = 23
+      Top = 8
+      Width = 170
+      DataField = 'PREPARATIO'
+      DataSource = RecipeDS
+      CharCase = ecNormal
+      EditMask = '#;1;_'
+      MaxLength = 1
+      TabOrder = 0
+    end
+    object Label7: TLabel
+      AnchorSideTop.Control = DBEdit2
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = DBEdit2
+      Left = 39
+      Height = 15
+      Top = 12
+      Width = 67
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 6
+      Caption = 'Préparation :'
+      ParentColor = False
+    end
+    object Label8: TLabel
+      AnchorSideTop.Control = DBEdit3
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = DBEdit3
+      Left = 338
+      Height = 15
+      Top = 12
+      Width = 48
+      Anchors = [akTop, akRight]
+      BorderSpacing.Right = 6
+      Caption = 'Cuisson :'
+      ParentColor = False
+    end
+    object DBEdit3: TDBEdit
+      Left = 392
+      Height = 23
+      Top = 8
+      Width = 250
+      DataField = 'TPS_CUISSO'
+      DataSource = RecipeDS
+      Anchors = [akTop, akLeft, akRight]
+      CharCase = ecNormal
+      EditMask = '#;1;_'
+      MaxLength = 1
+      TabOrder = 1
+    end
+    object Label9: TLabel
+      AnchorSideLeft.Control = DBEdit2
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = DBEdit2
+      AnchorSideTop.Side = asrCenter
+      Left = 288
+      Height = 15
+      Top = 12
+      Width = 21
+      BorderSpacing.Left = 6
+      Caption = 'min'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      AnchorSideLeft.Control = DBEdit3
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = DBEdit3
+      AnchorSideTop.Side = asrCenter
+      Left = 648
+      Height = 15
+      Top = 12
+      Width = 21
+      BorderSpacing.Left = 6
+      Caption = 'min'
+      ParentColor = False
+    end
+  end
+  object Label11: TLabel
+    AnchorSideTop.Control = DBEdit4
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = DBEdit4
+    Left = 503
+    Height = 15
+    Top = 152
+    Width = 123
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 6
+    Caption = 'Nombre de personnes :'
+    ParentColor = False
+  end
+  object DBEdit4: TDBEdit
+    Left = 632
+    Height = 23
+    Top = 148
+    Width = 309
+    DataField = 'NBR_PERSO'
+    DataSource = RecipeDS
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 8
+  end
+  object Label12: TLabel
+    AnchorSideTop.Control = DBEdit5
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = DBEdit5
+    Left = 578
+    Height = 15
+    Top = 236
+    Width = 48
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 6
+    Caption = 'Calories :'
+    ParentColor = False
+  end
+  object DBEdit5: TDBEdit
+    AnchorSideTop.Side = asrCenter
+    Left = 632
+    Height = 23
+    Top = 232
+    Width = 277
+    DataField = 'CALORIE'
+    DataSource = RecipeDS
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 9
+  end
+  object Label13: TLabel
+    AnchorSideLeft.Control = DBEdit5
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = DBEdit5
+    AnchorSideTop.Side = asrCenter
+    Left = 915
+    Height = 15
+    Top = 236
+    Width = 23
+    BorderSpacing.Left = 6
+    Caption = 'kCal'
+    ParentColor = False
+  end
+  object DBMemo1: TDBMemo
+    Left = 248
+    Height = 184
+    Top = 112
+    Width = 246
+    DataField = 'DESCRIPTIF'
+    DataSource = RecipeDS
+    TabOrder = 10
+  end
+  object Label14: TLabel
+    Left = 248
+    Height = 15
+    Top = 91
+    Width = 66
+    Caption = 'Description :'
+    ParentColor = False
+  end
+  object Label15: TLabel
+    AnchorSideTop.Control = DBEdit6
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = DBEdit6
+    Left = 601
+    Height = 15
+    Top = 276
+    Width = 25
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 6
+    Caption = 'Prix :'
+    ParentColor = False
+  end
+  object DBEdit6: TDBEdit
+    Left = 632
+    Height = 23
+    Top = 272
+    Width = 277
+    DataField = 'COUT'
+    DataSource = RecipeDS
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 11
+  end
+  object Label16: TLabel
+    AnchorSideLeft.Control = DBEdit6
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = DBEdit6
+    AnchorSideTop.Side = asrCenter
+    Left = 915
+    Height = 15
+    Top = 276
+    Width = 6
+    BorderSpacing.Left = 6
+    Caption = '€'
+    ParentColor = False
+  end
+  object Panel1: TPanel
+    Left = 240
+    Height = 309
+    Top = 360
+    Width = 711
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BevelOuter = bvNone
+    ClientHeight = 309
+    ClientWidth = 711
+    TabOrder = 12
+    object Label17: TLabel
+      AnchorSideLeft.Control = Panel1
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideRight.Side = asrCenter
+      Left = 354
+      Height = 15
+      Top = 104
+      Width = 3
+      Caption = ' '
+      ParentColor = False
+    end
+    object GroupBox2: TGroupBox
+      AnchorSideRight.Control = Label17
+      Left = 8
+      Height = 292
+      Top = 8
+      Width = 306
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Right = 40
+      Caption = 'Ingrédient de la recette'
+      ClientHeight = 274
+      ClientWidth = 302
+      TabOrder = 0
+      object DBGrid2: TDBGrid
+        Left = 8
+        Height = 256
+        Top = 8
+        Width = 288
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Color = clWindow
+        Columns = <        
+          item
+            ReadOnly = True
+            Title.Caption = 'Ingrédient'
+            Width = 69
+            FieldName = 'NAME_INGRE'
+          end        
+          item
+            Title.Caption = 'Qté'
+            Width = 34
+            FieldName = 'QTE'
+          end>
+        DataSource = CompoDS
+        DefaultRowHeight = 20
+        FixedCols = 0
+        Options = [dgEditing, dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiselect, dgAutoSizeColumns, dgRowHighlight]
+        Scrollbars = ssVertical
+        TabOrder = 0
+        TitleStyle = tsNative
+      end
+    end
+    object GroupBox3: TGroupBox
+      AnchorSideLeft.Control = Label17
+      AnchorSideLeft.Side = asrBottom
+      Left = 397
+      Height = 292
+      Top = 8
+      Width = 307
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      BorderSpacing.Left = 40
+      Caption = 'Ingrédients disponibles'
+      ClientHeight = 274
+      ClientWidth = 303
+      TabOrder = 1
+      object DBGrid3: TDBGrid
+        Left = 8
+        Height = 256
+        Top = 8
+        Width = 288
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'Ingrédients disponibles'
+            Width = 137
+            FieldName = 'INTITULE'
+          end>
+        DataSource = IngrDS
+        DefaultRowHeight = 20
+        FixedCols = 0
+        Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiselect, dgRowHighlight]
+        TabOrder = 0
+        TitleStyle = tsNative
+      end
+    end
+    object AddIngrButton: TButton
+      AnchorSideLeft.Control = Panel1
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = Panel1
+      AnchorSideTop.Side = asrCenter
+      Left = 318
+      Height = 25
+      Top = 142
+      Width = 75
+      Caption = '<-- Ajouter'
+      OnClick = AddIngrButtonClick
+      TabOrder = 2
+    end
+    object DeleteIngrButton: TButton
+      AnchorSideLeft.Control = Panel1
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = AddIngrButton
+      AnchorSideTop.Side = asrBottom
+      Left = 318
+      Height = 25
+      Top = 171
+      Width = 75
+      BorderSpacing.Top = 4
+      Caption = 'Suppr. -->'
+      OnClick = DeleteIngrButtonClick
+      TabOrder = 3
+    end
+  end
+  object RecipeDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    AfterScroll = RecipeDbfAfterScroll
+    OnFilterRecord = RecipeDbfFilterRecord
+    left = 24
+    top = 528
+  end
+  object RecipeDS: TDataSource
+    DataSet = RecipeDbf
+    left = 80
+    top = 528
+  end
+  object CompoDbf: TDbf
+    FilePath = 'E:\Developpement\UTT\Projet-EG23\'
+    IndexDefs = <>
+    TableName = 'COMPOSIT.DBF'
+    TableLevel = 3
+    Filtered = True
+    FilterOptions = []
+    BeforeOpen = CompoDbfBeforeOpen
+    AfterOpen = CompoDbfAfterOpen
+    OnCalcFields = CompoDbfCalcFields
+    left = 272
+    top = 600
+  end
+  object CompoDS: TDataSource
+    DataSet = CompoDbf
+    left = 336
+    top = 600
+  end
+  object CompoIngrDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    AfterOpen = CompoIngrDbfAfterOpen
+    left = 408
+    top = 600
+  end
+  object IngrDbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 664
+    top = 600
+  end
+  object IngrDS: TDataSource
+    DataSet = IngrDbf
+    left = 728
+    top = 601
+  end
+  object Compo2Dbf: TDbf
+    IndexDefs = <>
+    TableLevel = 4
+    FilterOptions = []
+    left = 272
+    top = 544
+  end
+end
