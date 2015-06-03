@@ -34,7 +34,6 @@ object Form1: TForm1
             Height = 620
             inherited InformationTabSheet: TTabSheet
               ClientHeight = 612
-              ClientWidth = 296
               inherited DBGrid1: TDBGrid
                 Height = 511
               end
@@ -44,6 +43,10 @@ object Form1: TForm1
               inherited EditOkButton: TButton
                 Top = 580
               end
+            end
+            inherited EditTabSheet: TTabSheet
+              ClientHeight = 1066
+              ClientWidth = 592
             end
           end
         end
@@ -68,6 +71,29 @@ object Form1: TForm1
             end
           end
         end
+        inherited Button1: TButton
+          Width = 168
+        end
+        inherited ShoppingListButton: TButton
+          Left = 184
+          Width = 128
+        end
+      end
+      object Button1: TButton
+        Left = 344
+        Height = 25
+        Top = 16
+        Width = 136
+        Caption = 'Ouvrir un planning...'
+        TabOrder = 1
+      end
+      object Button2: TButton
+        Left = 488
+        Height = 25
+        Top = 16
+        Width = 147
+        Caption = 'Enregistrer un planning...'
+        TabOrder = 2
       end
     end
     object RecipesTabSheet: TTabSheet
@@ -145,6 +171,7 @@ object Form1: TForm1
             ClientWidth = 345
             inherited DBGrid3: TDBGrid
               Height = 280
+              Top = 8
               Width = 330
             end
           end
@@ -156,6 +183,9 @@ object Form1: TForm1
             Left = 361
             Top = 183
           end
+        end
+        inherited IngrDbf: TDbf
+          OnFilterRecord = nil
         end
       end
     end
@@ -204,6 +234,7 @@ object Form1: TForm1
       Caption = '?'
       object MenuItem4: TMenuItem
         Caption = 'A propos de...'
+        OnClick = MenuItem4Click
       end
     end
   end
