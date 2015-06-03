@@ -19,6 +19,7 @@ type
     CompoIngrDbf: TDbf;
     Compo2Dbf: TDbf;
     DBGrid3: TDBGrid;
+    SearchIngrEdit: TEdit;
     IngrDS: TDataSource;
     IngrDbf: TDbf;
     DBGrid2: TDBGrid;
@@ -45,6 +46,7 @@ type
     Label15: TLabel;
     Label16: TLabel;
     Label17: TLabel;
+    Label18: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -71,11 +73,13 @@ type
     procedure CompoIngrDbfAfterOpen(DataSet: TDataSet);
     procedure DeleteIngrButtonClick(Sender: TObject);
     procedure DeleteRecipeButtonClick(Sender: TObject);
+    procedure IngrDbfFilterRecord(DataSet: TDataSet; var Accept: Boolean);
     procedure NewRecipeButtonClick(Sender: TObject);
 
     procedure RecipeDbfAfterScroll(DataSet: TDataSet);
     procedure RecipeDbfFilterRecord(DataSet: TDataSet; var Accept: Boolean);
     procedure SearchEditChange(Sender: TObject);
+    procedure SearchIngrEditChange(Sender: TObject);
   private
     { private declarations }
   public
@@ -89,7 +93,7 @@ implementation
 
 procedure TRecipeFrame.SearchEditChange(Sender: TObject);
 begin
-    //On filtre les ingrédients selon la recherche de l'utilisateur
+    //On filtre les recettes selon la recherche de l'utilisateur
     if SearchEdit.Text = '' then
     begin
         RecipeDbf.Refresh;
@@ -100,13 +104,34 @@ begin
         RecipeDbf.Refresh;
         RecipeDbf.Filtered := True;
     end;
+
+    //Voir la méthode RecipeDbfFilterRecord pour le filtrage des enregistrements
+    //de recettes selon la recherche de l'utilisateur
+end;
+
+procedure TRecipeFrame.SearchIngrEditChange(Sender: TObject);
+begin
+    //On filtre les ingrédients selon la recherche de l'utilisateur
+    if SearchIngrEdit.Text = '' then
+    begin
+        IngrDbf.Refresh;
+        IngrDbf.Filtered := False;
+    end
+    else
+    begin
+        IngrDbf.Refresh;
+        IngrDbf.Filtered := True;
+    end;
+
+    //Voir la méthode IngrDbfFilterRecord pour le filtrage des enregistrements
+    //d'ingrédients selon la recherche de l'utilisateur
 end;
 
 procedure TRecipeFrame.RecipeDbfFilterRecord(DataSet: TDataSet;
   var Accept: Boolean);
 begin
     //Fonction qui permet de définir quelles recettes sont filtrées.
-    //On teste s'il commence comme la recherche de l'utilisateur.
+    //On teste si elles commencent comme la recherche de l'utilisateur.
     Accept := AnsiStartsText(SearchEdit.Text,
         RecipeDbf.FieldByName('INTITULE').AsString);
 end;
@@ -204,6 +229,15 @@ begin
             end;
         end
     end;
+end;
+
+procedure TRecipeFrame.IngrDbfFilterRecord(DataSet: TDataSet;
+  var Accept: Boolean);
+begin
+    //Fonction qui permet de définir quels ingrédients sont filtrés.
+    //On teste s'ils commencent comme la recherche de l'utilisateur.
+    Accept := AnsiStartsText(SearchIngrEdit.Text,
+        IngrDbf.FieldByName('INTITULE').AsString);
 end;
 
 procedure TRecipeFrame.NewRecipeButtonClick(Sender: TObject);

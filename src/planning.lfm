@@ -35,7 +35,7 @@ object PlanningFrame: TPlanningFrame
         ClientWidth = 296
         object Label16: TLabel
           Left = 11
-          Height = 40
+          Height = 24
           Top = 8
           Width = 288
           AutoSize = False
@@ -95,6 +95,24 @@ object PlanningFrame: TPlanningFrame
           Caption = 'Ok'
           OnClick = EditOkButtonClick
           TabOrder = 2
+        end
+        object Label4: TLabel
+          AnchorSideTop.Control = SearchRecipeEdit
+          AnchorSideTop.Side = asrCenter
+          Left = 0
+          Height = 15
+          Top = 35
+          Width = 36
+          Caption = 'Filtrer :'
+          ParentColor = False
+        end
+        object SearchRecipeEdit: TEdit
+          Left = 40
+          Height = 23
+          Top = 31
+          Width = 256
+          OnChange = SearchRecipeEditChange
+          TabOrder = 3
         end
       end
       object EditTabSheet: TTabSheet
@@ -442,6 +460,7 @@ object PlanningFrame: TPlanningFrame
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
+    OnFilterRecord = InfoRecipeDbfFilterRecord
     left = 776
     top = 440
   end

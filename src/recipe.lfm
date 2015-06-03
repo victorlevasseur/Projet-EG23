@@ -482,8 +482,8 @@ object RecipeFrame: TRecipeFrame
       TabOrder = 1
       object DBGrid3: TDBGrid
         Left = 8
-        Height = 256
-        Top = 8
+        Height = 232
+        Top = 32
         Width = 288
         Anchors = [akTop, akLeft, akRight, akBottom]
         Color = clWindow
@@ -499,6 +499,29 @@ object RecipeFrame: TRecipeFrame
         Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiselect, dgRowHighlight]
         TabOrder = 0
         TitleStyle = tsNative
+      end
+      object SearchIngrEdit: TEdit
+        AnchorSideRight.Side = asrBottom
+        Left = 56
+        Height = 23
+        Top = 8
+        Width = 240
+        Anchors = [akTop, akLeft, akRight]
+        OnChange = SearchIngrEditChange
+        TabOrder = 1
+      end
+      object Label18: TLabel
+        AnchorSideTop.Control = SearchIngrEdit
+        AnchorSideTop.Side = asrCenter
+        AnchorSideRight.Control = SearchIngrEdit
+        Left = 14
+        Height = 15
+        Top = 12
+        Width = 36
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 6
+        Caption = 'Filtrer :'
+        ParentColor = False
       end
     end
     object AddIngrButton: TButton
@@ -573,6 +596,7 @@ object RecipeFrame: TRecipeFrame
     IndexDefs = <>
     TableLevel = 4
     FilterOptions = []
+    OnFilterRecord = IngrDbfFilterRecord
     left = 664
     top = 600
   end

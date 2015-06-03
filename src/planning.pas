@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, dbf, db, FileUtil, Forms, Controls, StdCtrls, ComCtrls,
-  ExtCtrls, Dialogs, DbCtrls, DBGrids, PlanningDay, ShoppingList;
+  ExtCtrls, Dialogs, DbCtrls, DBGrids, PlanningDay, ShoppingList, strutils;
 
 type
   TLabelList = array of TLabel;
@@ -15,6 +15,8 @@ type
 
   TPlanningFrame = class(TFrame)
       Button1: TButton;
+      SearchRecipeEdit: TEdit;
+      Label4: TLabel;
       ShoppingListButton: TButton;
       EditOkButton: TButton;
       EditCancelButton: TButton;
@@ -64,10 +66,12 @@ type
     procedure EditOkButtonClick(Sender: TObject);
     procedure EditRecipeButtonClick(Sender: TObject);
     procedure FrameClick(Sender: TObject);
+    procedure InfoRecipeDbfFilterRecord(DataSet: TDataSet; var Accept: Boolean);
     procedure ScrollPanelResize(Sender: TObject);
     procedure ScrollBar1Change(Sender: TObject);
     procedure ScrollBar1Scroll(Sender: TObject; ScrollCode: TScrollCode;
         var ScrollPos: Integer);
+    procedure SearchRecipeEditChange(Sender: TObject);
     procedure ShoppingListButtonClick(Sender: TObject);
   private
     { private declarations }
@@ -132,6 +136,27 @@ end;
 procedure TPlanningFrame.FrameClick(Sender: TObject);
 begin
 
+end;
+
+procedure TPlanningFrame.InfoRecipeDbfFilterRecord(DataSet: TDataSet;
+  var Accept: Boolean);
+begin
+    //On filtre les enregistrements
+    //En mode "information", on accepte tous les enregistrements
+    //En mode "changement de recette", on accepte que ceux recherchés par
+    //l'utilisateur
+
+    if IsInEditMode and (Length(SearchRecipeEdit.Text) > 0) then
+    begin
+        //Fonction qui permet de définir quelles recettes sont filtrées.
+        //On teste si elle commence comme la recherche de l'utilisateur.
+        Accept := AnsiStartsText(SearchRecipeEdit.Text,
+            InfoRecipeDbf.FieldByName('INTITULE').AsString);
+    end
+    else
+    begin
+        Accept := True;
+    end;
 end;
 
 procedure TPlanningFrame.EditRecipeButtonClick(Sender: TObject);
@@ -223,6 +248,16 @@ procedure TPlanningFrame.ScrollBar1Scroll(Sender: TObject;
     ScrollCode: TScrollCode; var ScrollPos: Integer);
 begin
     InsideScrollPanel.Left := -ScrollPos;
+end;
+
+procedure TPlanningFrame.SearchRecipeEditChange(Sender: TObject);
+begin
+    //On rafraichit la grille de recette pour que la filtrage par nom soit
+    //effectif
+    InfoRecipeDbf.Refresh;
+
+    //Voir la méthode InfoRecipeDbfFilterRecord (méthode qui filtre les
+    //enregistrements)
 end;
 
 procedure TPlanningFrame.ShoppingListButtonClick(Sender: TObject);
